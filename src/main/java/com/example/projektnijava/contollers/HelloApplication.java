@@ -1,4 +1,4 @@
-package com.example.projektnijava;
+package com.example.projektnijava.contollers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
