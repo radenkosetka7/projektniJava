@@ -1,70 +1,114 @@
 package com.example.projektnijava.game;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 public class Main {
 
-    public HashMap<Integer,Position> putanjaFigure=new HashMap<>();
+    public HashMap<Integer, Position> putanjaFigure = new HashMap<>();
+    List<Card> karte = new ArrayList<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
-    public void setujPutanjuFigure()
-    {
-        if(dimenzijaMatrice ==7)
-        {
-            putanjaFigure.put(4,new Position(0,3));
 
-            putanjaFigure.add(new Polje(new Element(1,4)));
+    public Main() {
+        setujPutanjuFigure();
+        addCards();
+        Collections.shuffle(karte);
+    }
 
-            putanjaFigure.add(new Polje(new Element(2,5)));
-
-            putanjaFigure.add(new Polje(new Element(3,6)));
-
-            putanjaFigure.add(new Polje(new Element(4,5)));
-
-            putanjaFigure.add(new Polje(new Element(5,4)));
-
-            putanjaFigure.add(new Polje(new Element(6,3)));
-
-            putanjaFigure.add(new Polje(new Element(5,2)));
-
-            putanjaFigure.add(new Polje(new Element(4,1)));
-
-            putanjaFigure.add(new Polje(new Element(3,0)));
-
-            putanjaFigure.add(new Polje(new Element(2,1)));
-            mapper.put(16,putanjaFigure.get(10));
-            putanjaFigure.add(new Polje(new Element(1,2)));
-            mapper.put(10,putanjaFigure.get(11));
-            putanjaFigure.add(new Polje(new Element(1,3)));
-            mapper.put(11,putanjaFigure.get(12));
-            putanjaFigure.add(new Polje(new Element(2,4)));
-            mapper.put(19,putanjaFigure.get(13));
-            putanjaFigure.add(new Polje(new Element(3,5)));
-            mapper.put(27,putanjaFigure.get(14));
-            putanjaFigure.add(new Polje(new Element(4,4)));
-            mapper.put(33,putanjaFigure.get(15));
-            putanjaFigure.add(new Polje(new Element(5,3)));
-            mapper.put(39,putanjaFigure.get(16));
-            putanjaFigure.add(new Polje(new Element(4,2)));
-            mapper.put(31,putanjaFigure.get(17));
-            putanjaFigure.add(new Polje(new Element(3,1)));
-            mapper.put(23,putanjaFigure.get(18));
-            putanjaFigure.add(new Polje(new Element(2,2)));
-            mapper.put(17,putanjaFigure.get(19));
-            putanjaFigure.add(new Polje(new Element(2,3)));
-            mapper.put(18,putanjaFigure.get(20));
-            putanjaFigure.add(new Polje(new Element(3,4)));
-            mapper.put(26,putanjaFigure.get(21));
-            putanjaFigure.add(new Polje(new Element(4,3)));
-            mapper.put(32,putanjaFigure.get(22));
-            putanjaFigure.add(new Polje(new Element(3,2)));
-            mapper.put(24,putanjaFigure.get(23));
-            putanjaFigure.add(new Polje(new Element(3,3)));
-            mapper.put(25,putanjaFigure.get(24));
+    public void setujPutanjuFigure() {
+        if (dimenzijaMatrice == 7) {
+            putanjaFigure.put(4, new Position(0, 3));
+            putanjaFigure.put(12, new Position(1, 4));
+            putanjaFigure.put(20, new Position(2, 5));
+            putanjaFigure.put(28, new Position(3, 6));
+            putanjaFigure.put(34, new Position(4, 5));
+            putanjaFigure.put(40, new Position(5, 4));
+            putanjaFigure.put(46, new Position(6, 3));
+            putanjaFigure.put(38, new Position(5, 2));
+            putanjaFigure.put(30, new Position(4, 1));
+            putanjaFigure.put(22, new Position(3, 0));
+            putanjaFigure.put(16, new Position(2, 1));
+            putanjaFigure.put(10, new Position(1, 2));
+            putanjaFigure.put(11, new Position(1, 3));
+            putanjaFigure.put(19, new Position(2, 4));
+            putanjaFigure.put(27, new Position(3, 5));
+            putanjaFigure.put(33, new Position(4, 4));
+            putanjaFigure.put(39, new Position(5, 3));
+            putanjaFigure.put(31, new Position(4, 2));
+            putanjaFigure.put(23, new Position(3, 1));
+            putanjaFigure.put(17, new Position(2, 2));
+            putanjaFigure.put(18, new Position(2, 3));
+            putanjaFigure.put(26, new Position(3, 4));
+            putanjaFigure.put(32, new Position(4, 3));
+            putanjaFigure.put(24, new Position(3, 2));
+            putanjaFigure.put(25, new Position(3, 3));
+        } else if (dimenzijaMatrice == 9) {
+            putanjaFigure.put(5, new Position(0, 4));
+            putanjaFigure.put(15, new Position(1, 5));
+            putanjaFigure.put(25, new Position(2, 6));
+            putanjaFigure.put(35, new Position(3, 7));
+            putanjaFigure.put(45, new Position(4, 8));
+            putanjaFigure.put(53, new Position(5, 7));
+            putanjaFigure.put(61, new Position(6, 6));
+            putanjaFigure.put(69, new Position(7, 5));
+            putanjaFigure.put(77, new Position(8, 4));
+            putanjaFigure.put(67, new Position(7, 3));
+            putanjaFigure.put(57, new Position(6, 2));
+            putanjaFigure.put(47, new Position(5, 1));
+            putanjaFigure.put(37, new Position(4, 0));
+            putanjaFigure.put(29, new Position(3, 1));
+            putanjaFigure.put(21, new Position(2, 2));
+            putanjaFigure.put(13, new Position(1, 3));
+            putanjaFigure.put(14, new Position(1, 4));
+            putanjaFigure.put(24, new Position(2, 5));
+            putanjaFigure.put(34, new Position(3, 6));
+            putanjaFigure.put(44, new Position(4, 7));
+            putanjaFigure.put(52, new Position(5, 6));
+            putanjaFigure.put(60, new Position(6, 5));
+            putanjaFigure.put(68, new Position(7, 4));
+            putanjaFigure.put(58, new Position(6, 3));
+            putanjaFigure.put(48, new Position(5, 2));
+            putanjaFigure.put(38, new Position(4, 1));
+            putanjaFigure.put(30, new Position(3, 2));
+            putanjaFigure.put(22, new Position(2, 3));
+            putanjaFigure.put(23, new Position(2, 4));
+            putanjaFigure.put(33, new Position(3, 5));
+            putanjaFigure.put(43, new Position(4, 6));
+            putanjaFigure.put(51, new Position(5, 5));
+            putanjaFigure.put(59, new Position(6, 4));
+            putanjaFigure.put(49, new Position(5, 3));
+            putanjaFigure.put(39, new Position(4, 2));
+            putanjaFigure.put(31, new Position(3, 3));
+            putanjaFigure.put(32, new Position(3, 4));
+            putanjaFigure.put(42, new Position(4, 5));
+            putanjaFigure.put(50, new Position(5, 4));
+            putanjaFigure.put(40, new Position(4, 3));
+            putanjaFigure.put(41, new Position(4, 4));
         }
 
 
     }
+
+    public void addPlayers() {
+
+    }
+
+    public void addCards() {
+        for (int i = 0; i < 10; i++) {
+
+            karte.add(new OrdinaryCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "card1.png"));
+            karte.add(new OrdinaryCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "card2.png"));
+            karte.add(new OrdinaryCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "card3.png"));
+            karte.add(new OrdinaryCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "card4.png"));
+        }
+        for (int i = 0; i < 12; i++) {
+            karte.add(new SpecialCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "joker.png"));
+
+        }
+    }
+
 }
