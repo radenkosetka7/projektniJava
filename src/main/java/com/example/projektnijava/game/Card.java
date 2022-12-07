@@ -1,13 +1,13 @@
 package com.example.projektnijava.game;
 
 public abstract class Card {
-    private String picturePath;
+    public String putanja;
 
     public Card() {
     }
 
-    public Card(String path) {
-        this.picturePath = path;
+    public Card(String putanja) {
+        this.putanja = putanja;
     }
 
 }
