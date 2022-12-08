@@ -1,5 +1,9 @@
 package com.example.projektnijava.game;
 
+import javafx.scene.image.Image;
+
+import java.io.File;
+
 public abstract class Card {
     public String putanja;
 
@@ -8,6 +12,11 @@ public abstract class Card {
 
     public Card(String putanja) {
         this.putanja = putanja;
+    }
+
+    public Image getSlika()
+    {
+        return new Image(new File(putanja).toString(),250,250,false,false);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.projektnijava.contollers;
 
+import com.example.projektnijava.game.Card;
+import com.example.projektnijava.game.Figure;
 import com.example.projektnijava.game.Main;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -109,6 +111,14 @@ public class MainController implements Initializable {
         return gridPane;
     }
 
+    public void postaviKartu(Card card)
+    {
+        Platform.runLater(()->
+        {
+            cardImageView.setImage(card.getSlika());
+        });
+    }
+
     public void postaviDiamond(int red,int kolona)
     {
         Platform.runLater(()->
@@ -124,14 +134,23 @@ public class MainController implements Initializable {
         });
     }
 
-    public void postaviFiguru()
+    public void postaviFiguru(int red, int kolona, String skracenica,Color boja)
     {
-
+        Platform.runLater(()->
+        {
+            Label labela=(Label) matrica[red][kolona].getChildren().get(0);
+            labela.setText(skracenica);
+            labela.setStyle("-fx-background-color: " + boja);
+        });
     }
 
-    public void skloniFiguru()
+    public void skloniFiguru(int red,int kolona)
     {
-
+        Platform.runLater(()->
+        {
+            Label labela=(Label) matrica[red][kolona].getChildren().get(0);
+            labela.setStyle("-fx-background-color: transparent");
+        });
     }
 
     public void postaviRupu(int red,int kolona)
