@@ -1,5 +1,7 @@
 package com.example.projektnijava.game;
 
+import javafx.application.Platform;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -180,6 +182,7 @@ public class Main {
     public void addPlayers() {
 
     }
+
 
     public void addCards() {
         for (int i = 0; i < 10; i++) {

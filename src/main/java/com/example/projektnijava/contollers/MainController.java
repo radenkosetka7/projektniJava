@@ -1,10 +1,12 @@
 package com.example.projektnijava.contollers;
 
 import com.example.projektnijava.game.Main;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -20,6 +22,8 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
+    public final Image diamondSlika=new Image(new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator +
+            "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toString(),10,10,false,false);
     public Label numberOfRoundsPlayed=new Label();
     public Label numbersPlayedLabel=new Label();
     public BorderPane borderPane=new BorderPane();
@@ -103,6 +107,49 @@ public class MainController implements Initializable {
             }
         }
         return gridPane;
+    }
+
+    public void postaviDiamond(int red,int kolona)
+    {
+        Platform.runLater(()->
+        {
+            ((Label)matrica[red][kolona].getChildren().get(0)).setGraphic(new ImageView(diamondSlika));
+        });
+    }
+    public void skloniDiamond(int red,int kolona)
+    {
+        Platform.runLater(()->
+        {
+            ((Label)matrica[red][kolona].getChildren().get(0)).setGraphic(null);
+        });
+    }
+
+    public void postaviFiguru()
+    {
+
+    }
+
+    public void skloniFiguru()
+    {
+
+    }
+
+    public void postaviRupu(int red,int kolona)
+    {
+        Platform.runLater(()->
+        {
+            Label labela = (Label) matrica[red][kolona].getChildren().get(0);
+            labela.setStyle("-fx-background-color: black; -fx-border-color:black");
+        });
+    }
+
+    public void skloniRupu(int red,int kolona)
+    {
+        Platform.runLater(()->
+        {
+            Label labela = (Label) matrica[red][kolona].getChildren().get(0);
+            labela.setStyle("-fx-background-color: transparent; -fx-border-color:transparent");
+        });
     }
 
     public void pokreniSimulaciju(ActionEvent actionEvent) {
