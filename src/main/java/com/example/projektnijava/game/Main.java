@@ -20,6 +20,7 @@ public class Main {
     public static long vrijemeIgre;
     public static Object[][] matrica;
     public static MainController mc=new MainController();
+    public static Object pauza=new Object();
 
     public Main() {
         setujPutanjuFigure();

@@ -34,13 +34,14 @@ public class SpecialCard extends Card{
                 Hole hole=new Hole();
                 rupe.add(pozicija);
                 Main.matrica[pozicija.getX()][pozicija.getY()]=hole;
-                mc.postaviDiamond(pozicija.getX(),pozicija.getY());
+                mc.postaviRupu(pozicija.getX(),pozicija.getY());
                 i++;
                 if(Main.matrica[pozicija.getX()][pozicija.getY()] instanceof Figure &&
                     !(Main.matrica[pozicija.getX()][pozicija.getY()] instanceof SuperFastInterface))
                 {
                     Figure figura=(Figure)Main.matrica[pozicija.getX()][pozicija.getY()];
                     figura.setZavrsila(true);
+                    mc.skloniFiguru(pozicija.getX(),pozicija.getY());
                     Main.matrica[pozicija.getX()][pozicija.getY()]=null;
                 }
             }
