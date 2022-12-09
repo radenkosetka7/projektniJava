@@ -61,5 +61,6 @@ public class SpecialCard extends Card{
            mc.skloniRupu(rupa.getX(), rupa.getY());
            rupe.remove(rupa);
         }
+        rupe.clear();
     }
 }
