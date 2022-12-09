@@ -27,7 +27,7 @@ import static java.lang.Thread.sleep;
 public class MainController implements Initializable {
 
     public final Image diamondSlika=new Image(new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator +
-            "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toString(),10,10,false,false);
+            "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toURI().toString(),10,10,false,false);
     public Label numberOfRoundsPlayed=new Label();
     public Label numbersPlayedLabel=new Label();
     public BorderPane borderPane=new BorderPane();
