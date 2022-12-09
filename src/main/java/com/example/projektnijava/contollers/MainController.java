@@ -84,6 +84,7 @@ public class MainController implements Initializable {
             GridPane gridPane=createGridPane(Main.dimenzijaMatrice,matrica);
             centerHBox.getChildren().add(1, gridPane);
             cardImageView.setStyle("-fx-background-color: WHITE");
+            Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,14 +126,14 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            ((Label)matrica[red][kolona].getChildren().get(0)).setGraphic(new ImageView(diamondSlika));
+            ((Label)matrica[kolona][red].getChildren().get(0)).setGraphic(new ImageView(diamondSlika));
         });
     }
     public void skloniDiamond(int red,int kolona)
     {
         Platform.runLater(()->
         {
-            ((Label)matrica[red][kolona].getChildren().get(0)).setGraphic(null);
+            ((Label)matrica[kolona][red].getChildren().get(0)).setGraphic(null);
         });
     }
 
@@ -140,7 +141,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela=(Label) matrica[red][kolona].getChildren().get(0);
+            Label labela=(Label) matrica[kolona][red].getChildren().get(0);
             labela.setText(skracenica);
             labela.setStyle("-fx-background-color: " + boja);
         });
@@ -150,7 +151,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela=(Label) matrica[red][kolona].getChildren().get(0);
+            Label labela=(Label) matrica[kolona][red].getChildren().get(0);
             labela.setStyle("-fx-background-color: transparent");
         });
     }
@@ -159,7 +160,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela = (Label) matrica[red][kolona].getChildren().get(0);
+            Label labela = (Label) matrica[kolona][red].getChildren().get(0);
             labela.setStyle("-fx-background-color: black; -fx-border-color:black");
         });
     }
@@ -168,7 +169,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela = (Label) matrica[red][kolona].getChildren().get(0);
+            Label labela = (Label) matrica[kolona][red].getChildren().get(0);
             labela.setStyle("-fx-background-color: transparent; -fx-border-color:transparent");
         });
     }

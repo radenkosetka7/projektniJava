@@ -3,7 +3,7 @@ package com.example.projektnijava.game;
 public class Hole {
 
 
-    private Hole()
+    public Hole()
     {
         super();
     }

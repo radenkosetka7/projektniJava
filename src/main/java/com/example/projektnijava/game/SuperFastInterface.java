@@ -1,4 +1,4 @@
 package com.example.projektnijava.game;
 
-public interface HoverInterface {
+public interface SuperFastInterface {
 }

@@ -1,5 +1,6 @@
 package com.example.projektnijava.game;
 
+import com.example.projektnijava.contollers.MainController;
 import javafx.application.Platform;
 
 import java.io.File;
@@ -10,13 +11,15 @@ import java.util.List;
 
 public class Main {
 
-    public HashMap<Integer, Position> putanjaFigure = new HashMap<>();
+    public static HashMap<Integer, Position> putanjaFigure = new HashMap<>();
     List<Card> karte = new ArrayList<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
     public static boolean simulacijaZavrsena=false;
     public static boolean pauziranaSimulacija=false;
     public static long vrijemeIgre;
+    public static Object[][] matrica;
+    public static MainController mc=new MainController();
 
     public Main() {
         setujPutanjuFigure();

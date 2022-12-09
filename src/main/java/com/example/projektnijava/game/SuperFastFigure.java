@@ -1,4 +1,4 @@
 package com.example.projektnijava.game;
 
-public class SuperFastFigure extends Figure{
+public class SuperFastFigure extends Figure implements SuperFastInterface{
 }
