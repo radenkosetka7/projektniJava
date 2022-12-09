@@ -21,6 +21,7 @@ public class Main {
     public static Object[][] matrica;
     public static MainController mc=new MainController();
     public static Object pauza=new Object();
+    public static Main main=new Main();
 
     public Main() {
         setujPutanjuFigure();
@@ -28,6 +29,12 @@ public class Main {
         Collections.shuffle(karte);
     }
 
+    public String znacenjeKarte()
+    {
+        //TODO uzima trenutnu kartu, ako je specijalna ispise odgovarajucu poruku.
+        //TODO ako je obicna, treba imati igraca, figuru i da ispise odgovarajucu poruku.
+        return "";
+    }
     public void setujPutanjuFigure() {
         if (dimenzijaMatrice == 7) {
             putanjaFigure.put(4, new Position(0, 3));

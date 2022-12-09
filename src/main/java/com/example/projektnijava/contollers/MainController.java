@@ -85,13 +85,13 @@ public class MainController implements Initializable {
             centerHBox.getChildren().add(1, gridPane);
             cardImageView.setStyle("-fx-background-color: WHITE");
             Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
-            numbersPlayedLabel.setText(String.valueOf(tempMethodNumberOfGames()));
+            numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private Integer tempMethodNumberOfGames()
+    private Integer tempBrojIgara()
     {
         File[] file=new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "results").listFiles();
         return file.length;
@@ -225,7 +225,7 @@ public class MainController implements Initializable {
                 {
                     Platform.runLater(()->
                     {
-                        cardTextArea.setText("");
+                        cardTextArea.setText(Main.main.znacenjeKarte());
                     });
                     try
                     {
