@@ -5,6 +5,7 @@ public abstract class Figure {
     private Color boja;
     private String skracenica;
     private boolean zavrsila=false;
+    //doradi ovo klasu
 
 
     public Figure() {
