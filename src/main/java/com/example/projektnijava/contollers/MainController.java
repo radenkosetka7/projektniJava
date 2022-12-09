@@ -85,9 +85,16 @@ public class MainController implements Initializable {
             centerHBox.getChildren().add(1, gridPane);
             cardImageView.setStyle("-fx-background-color: WHITE");
             Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
+            numbersPlayedLabel.setText(String.valueOf(tempMethodNumberOfGames()));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private Integer tempMethodNumberOfGames()
+    {
+        File[] file=new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "results").listFiles();
+        return file.length;
     }
 
     private GridPane createGridPane(int dimenzijaMatrice, StackPane[][] matrica) {
