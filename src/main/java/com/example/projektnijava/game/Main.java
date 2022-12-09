@@ -14,6 +14,9 @@ public class Main {
     List<Card> karte = new ArrayList<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
+    public static boolean simulacijaZavrsena=false;
+    public static boolean pauziranaSimulacija=false;
+    public static long vrijemeIgre;
 
     public Main() {
         setujPutanjuFigure();

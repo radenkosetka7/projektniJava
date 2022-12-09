@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static java.lang.Thread.sleep;
+
 public class MainController implements Initializable {
 
     public final Image diamondSlika=new Image(new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator +
@@ -168,6 +170,63 @@ public class MainController implements Initializable {
         {
             Label labela = (Label) matrica[red][kolona].getChildren().get(0);
             labela.setStyle("-fx-background-color: transparent; -fx-border-color:transparent");
+        });
+    }
+
+    private Thread trajanjeSimulacije()
+    {
+        return new Thread(()-> {
+
+            int m=0,s=0;
+            while(!Main.simulacijaZavrsena)
+            {
+                if(!Main.pauziranaSimulacija)
+                {
+                    Main.vrijemeIgre=s;
+                    String formatiranoVrijeme=String.format("%d m %d s",m,s);
+                    Platform.runLater(()->
+                    {
+                        timeLabel.setText(formatiranoVrijeme);
+                    });
+                    try
+                    {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    s++;
+                    if(s>=60)
+                    {
+                        m++;
+                        s%=60;
+                    }
+
+                }
+            }
+
+        });
+    }
+
+    private Thread prikaziOpisKarte()
+    {
+        return new Thread(()->
+        {
+            while(!Main.simulacijaZavrsena)
+            {
+                if(!Main.pauziranaSimulacija)
+                {
+                    Platform.runLater(()->
+                    {
+                        cardTextArea.setText("");
+                    });
+                    try
+                    {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         });
     }
 
