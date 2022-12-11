@@ -1,9 +1,11 @@
 package com.example.projektnijava.game;
 
-public enum Color {
+import javafx.scene.paint.Paint;
+
+public enum ColorOfFIgure {
 
     CRVENA,
     PLAVA,
     ZELENA,
-    ZUTA
+    ZUTA;
 }
