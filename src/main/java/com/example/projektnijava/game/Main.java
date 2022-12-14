@@ -31,6 +31,7 @@ public class Main {
 
     public String znacenjeKarte()
     {
+        //doraditi
         //TODO uzima trenutnu kartu, ako je specijalna ispise odgovarajucu poruku.
         //TODO ako je obicna, treba imati igraca, figuru i da ispise odgovarajucu poruku.
         return "";
