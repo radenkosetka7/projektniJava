@@ -203,8 +203,8 @@ public class Main {
     public void addPlayers() {
         for (int i = 0; i < brojIgraca; i++) {
             List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
-            Collections.shuffle(colors);
-            ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
+             ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
+             colors.remove(tmpColor);
             igraci.add(new Player(tmpColor));
         }
     }
