@@ -16,9 +16,10 @@ public class GhostFigure extends Thread{
 
     }
 
+
     public void run()
     {
-        while(!Main.simulacijaZavrsena)
+        while(Main.igraci.size()>0)
         {
             synchronized (Main.pauza)
             {

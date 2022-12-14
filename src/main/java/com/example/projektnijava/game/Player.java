@@ -18,6 +18,14 @@ public class Player {
         id++;
     }
 
+    public boolean isZavrsioKretanje() {
+        return zavrsioKretanje;
+    }
+
+    public void setZavrsioKretanje(boolean zavrsioKretanje) {
+        this.zavrsioKretanje = zavrsioKretanje;
+    }
+
     public Player(String ime, ColorOfFIgure boja) {
         this.ime = ime;
         dodajFigure(boja);
@@ -43,7 +51,7 @@ public class Player {
         }
     }
 
-    public void igracNaPotezu()
+    public void igracNaPotezu(int pomjeraj)
     {
         //izvuci figuru
         Figure figura= figureIgraca.stream().filter(e->!e.isZavrsila()).findFirst().orElse(null);
@@ -54,7 +62,7 @@ public class Player {
             trenutnaFigura.kreni(this,brojKoraka);
         }
         else {
-            this.zavrsioKretanje=true;
+           setZavrsioKretanje(true);
         }
     }
 }

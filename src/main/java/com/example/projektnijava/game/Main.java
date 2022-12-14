@@ -4,39 +4,44 @@ import com.example.projektnijava.contollers.MainController;
 import javafx.application.Platform;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static HashMap<Integer, Position> putanjaFigure = new HashMap<>();
     List<Card> karte = new ArrayList<>();
+    public static Set<Player> igraci = new HashSet<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
-    public static boolean simulacijaZavrsena=false;
-    public static boolean pauziranaSimulacija=false;
+    public static boolean simulacijaZavrsena = false;
+    public static boolean pauziranaSimulacija = false;
     public static long vrijemeIgre;
     public static Object[][] matrica;
-    public static MainController mc=new MainController();
-    public static Object pauza=new Object();
-    public static Main main=new Main();
+    public static MainController mc = new MainController();
+    public static Object pauza = new Object();
+    public static Main main = new Main();
+    public static Random rand = new Random();
 
     public Main() {
         setujPutanjuFigure();
         addCards();
-        Collections.shuffle(karte);
+        addPlayers();
     }
 
-    public String znacenjeKarte()
-    {
-        //milana me ne voli
-        //doraditi
-        //TODO uzima trenutnu kartu, ako je specijalna ispise odgovarajucu poruku.
-        //TODO ako je obicna, treba imati igraca, figuru i da ispise odgovarajucu poruku.
-        return "";
+    public String znacenjeKarte(Object... a) {
+        String x = "";
+        if (a.length == 1) {
+            x = "Na potezu je " + a;
+        }
+        else if(a.length==2)
+        {
+            Card k=(Card) a[0];
+            Player p=(Player) a[1];
+            x = k+" " +p;
+        }
+        return x;
     }
+
     public void setujPutanjuFigure() {
         if (dimenzijaMatrice == 7) {
             putanjaFigure.put(4, new Position(0, 3));
@@ -196,7 +201,12 @@ public class Main {
     }
 
     public void addPlayers() {
-
+        for (int i = 0; i < brojIgraca; i++) {
+            List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
+            Collections.shuffle(colors);
+            ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
+            igraci.add(new Player(tmpColor));
+        }
     }
 
 
@@ -212,10 +222,32 @@ public class Main {
             karte.add(new SpecialCard("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "pictures" + File.separator + "joker.png"));
 
         }
+        Collections.shuffle(karte);
     }
 
-    public void zapocniIgru()
-    {
+    public void zapocniIgru() {
+        GhostFigure figure = new GhostFigure();
+        figure.start();
+
+        while (igraci.size() > 0) {
+            Card tmpKarta = karte.remove(0);
+            //pozovi fju za stavljanje slike
+            mc.postaviKartu(tmpKarta);
+            if (tmpKarta instanceof SpecialCard) {
+                ((SpecialCard) tmpKarta).dodajRupu();
+
+            } else if (tmpKarta instanceof OrdinaryCard) {
+                Player tmpIgrac = igraci.stream().findFirst().get();//uzme prvog igraca
+                igraci.remove(tmpIgrac);
+                int brojPolja = ((OrdinaryCard) tmpKarta).getBrojPolja();
+                tmpIgrac.igracNaPotezu(brojPolja);
+                if (!tmpIgrac.isZavrsioKretanje()) {
+                    igraci.add(tmpIgrac);
+                }
+
+            }
+            karte.add(tmpKarta);
+        }
 
 
     }

@@ -21,6 +21,7 @@ public class SpecialCard extends Card{
 
     public void dodajRupu()
     {
+
         Random random=new Random();
         int brojRupa=random.nextInt(Main.dimenzijaMatrice-2)+2;
         int i=0;
@@ -53,6 +54,7 @@ public class SpecialCard extends Card{
             e.printStackTrace();
         }
         ukloniRupe();
+
     }
 
     private void ukloniRupe()

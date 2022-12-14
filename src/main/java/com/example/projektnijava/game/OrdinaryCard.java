@@ -4,7 +4,7 @@ import java.nio.file.Path;
 
 public class OrdinaryCard extends Card{
 
-    private int brojPolja;
+    private int brojPolja;//koliko se polja pomjera
     public OrdinaryCard() {
     }
 
