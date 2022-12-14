@@ -54,7 +54,16 @@ public class Player {
     public void igracNaPotezu(int pomjeraj)
     {
         //izvuci figuru
-        Figure figura= figureIgraca.stream().filter(e->!e.isZavrsila()).findFirst().orElse(null);
+       //Figure figura= figureIgraca.stream().filter(e->!e.isZavrsila()).findFirst().orElse(null);
+        Figure figura=null;
+        for(int i=0;i<figureIgraca.size();i++)
+        {
+            Figure tempFigura=figureIgraca.get(i);
+            if(!tempFigura.isZavrsila())
+            {
+                figura=tempFigura;
+            }
+        }
         if(figura!=null)
         {
             trenutnaFigura=figura;
