@@ -1,7 +1,7 @@
 package com.example.projektnijava.contollers;
 
 import com.example.projektnijava.game.Card;
-import com.example.projektnijava.game.Figure;
+import com.example.projektnijava.game.ColorOfFIgure;
 import com.example.projektnijava.game.Main;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -93,6 +93,11 @@ public class MainController implements Initializable {
 
     private Integer tempBrojIgara()
     {
+        return tempMethodNumberOfGames();
+    }
+
+    private Integer tempMethodNumberOfGames()
+    {
         File[] file=new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "results").listFiles();
         return file.length;
     }
@@ -144,7 +149,7 @@ public class MainController implements Initializable {
         });
     }
 
-    public void postaviFiguru(int red, int kolona, String skracenica,Color boja)
+    public void postaviFiguru(int red, int kolona, String skracenica, ColorOfFIgure boja)
     {
         Platform.runLater(()->
         {
