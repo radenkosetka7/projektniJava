@@ -23,7 +23,13 @@ public abstract class Figure {
     }
 
 
+    public List<Position> getFiguraPresla() {
+        return figuraPresla;
+    }
 
+    public void setFiguraPresla(List<Position> figuraPresla) {
+        this.figuraPresla = figuraPresla;
+    }
 
     public ColorOfFIgure getBoja() {
         return boja;
