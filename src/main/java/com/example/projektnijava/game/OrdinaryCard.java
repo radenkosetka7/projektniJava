@@ -13,7 +13,7 @@ public class OrdinaryCard extends Card{
         super(path);
         String fajl= Path.of(path).getFileName().toString();
         String[] parts=fajl.split("\\.");
-        this.brojPolja=Integer.parseInt(parts[0]);
+        this.brojPolja=Integer.parseInt(parts[0].substring(parts[0].length()-1));
     }
 
     public int getBrojPolja() {

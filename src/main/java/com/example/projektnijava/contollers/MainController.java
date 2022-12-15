@@ -1,20 +1,27 @@
 package com.example.projektnijava.contollers;
 
+import com.example.projektnijava.MainApplication;
 import com.example.projektnijava.game.Card;
 import com.example.projektnijava.game.ColorOfFIgure;
 import com.example.projektnijava.game.Main;
+import com.example.projektnijava.game.Player;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,11 +46,22 @@ public class MainController implements Initializable {
     public ImageView cardImageView=new ImageView();
     public Label timeLabel=new Label();
     private StackPane[][] matrica;
+    public static boolean firstTime=true;
+    public static int brojKlikova=0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         procitajSetup();
+        numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
+        for(Player igrac:Main.igraci)
+        {
+            Label label=new Label(igrac.getIme());
+            //if(igrac.get)
+        }
     }
+
+
+
 
     public void procitajSetup() {
         try {
@@ -85,7 +103,6 @@ public class MainController implements Initializable {
             centerHBox.getChildren().add(1, gridPane);
             cardImageView.setStyle("-fx-background-color: WHITE");
             Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
-            numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -244,11 +261,38 @@ public class MainController implements Initializable {
     }
 
     public void pokreniSimulaciju(ActionEvent actionEvent) {
+
+        if(firstTime)
+        {
+            Thread simulacija=trajanjeSimulacije();
+            simulacija.start();
+            new Thread(()->Main.main.zapocniIgru()).start();
+            Thread poruke=prikaziOpisKarte();
+            poruke.start();
+            firstTime=false;
+        }
+        startButton.setText("Zaustavi");
+
     }
 
     public void prikaziKretanjeFigure(MouseEvent mouseEvent) {
     }
 
-    public void prikaziRezultate(ActionEvent actionEvent) {
+    public void prikaziRezultate(ActionEvent actionEvent) throws IOException {
+
+        try
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600, Color.GRAY);
+            Stage newStage=new Stage();
+            newStage.setTitle("Results");
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
