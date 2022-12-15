@@ -5,10 +5,9 @@ import java.util.Random;
 
 public class Player {
     private static final int brojFigura = 4;
-    private Figure trenutnaFigura;
     public static int id = 1;
     private final String ime;
-    private boolean zavrsioKretanje=false;
+    private boolean zavrsioKretanje = false;
     private Random rand = new Random();
 
     private final ArrayList<Figure> figureIgraca = new ArrayList<>(brojFigura);
@@ -51,26 +50,20 @@ public class Player {
         }
     }
 
-    public void igracNaPotezu(int pomjeraj)
-    {
-        Figure slobodnaFigura=null;
-        for(Figure f:figureIgraca)
-        {
-            if(!f.isZavrsila())
-            {
-                slobodnaFigura=f;
+    public void igracNaPotezu(int pomjeraj) {
+        Figure slobodnaFigura = null;
+        for (Figure f : figureIgraca) {
+            if (!f.isZavrsila()) {
+                slobodnaFigura = f;
             }
         }
 
         //izabrana figura sa kojom ce igrati
-        if(slobodnaFigura == null)
-        {
+        if (slobodnaFigura == null) {
             this.setZavrsioKretanje(true);
-        }
-        else {
+        } else {
             //da li mi treba trenutna fig uopste ili mogu raditi sa ovom slobodnaFigura? xd
-            trenutnaFigura=slobodnaFigura;
-            trenutnaFigura.kreni(this,pomjeraj);
+            slobodnaFigura.kreni(this, pomjeraj);
         }
 
     }
