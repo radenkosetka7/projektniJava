@@ -22,6 +22,9 @@ public abstract class Figure {
         krajnjaPozicija=Main.putanjaFigure.get(size);//ili size=1???
     }
 
+
+
+
     public ColorOfFIgure getBoja() {
         return boja;
     }

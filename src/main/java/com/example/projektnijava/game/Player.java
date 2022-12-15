@@ -53,25 +53,25 @@ public class Player {
 
     public void igracNaPotezu(int pomjeraj)
     {
-        //izvuci figuru
-       //Figure figura= figureIgraca.stream().filter(e->!e.isZavrsila()).findFirst().orElse(null);
-        Figure figura=null;
-        for(int i=0;i<figureIgraca.size();i++)
+        Figure slobodnaFigura=null;
+        for(Figure f:figureIgraca)
         {
-            Figure tempFigura=figureIgraca.get(i);
-            if(!tempFigura.isZavrsila())
+            if(!f.isZavrsila())
             {
-                figura=tempFigura;
+                slobodnaFigura=f;
             }
         }
-        if(figura!=null)
+
+        //izabrana figura sa kojom ce igrati
+        if(slobodnaFigura == null)
         {
-            trenutnaFigura=figura;
-            int brojKoraka=3;//uzmi iz maina kad igra zapocne na osnovu karte
-            trenutnaFigura.kreni(this,brojKoraka);
+            this.setZavrsioKretanje(true);
         }
         else {
-           setZavrsioKretanje(true);
+            //da li mi treba trenutna fig uopste ili mogu raditi sa ovom slobodnaFigura? xd
+            trenutnaFigura=slobodnaFigura;
+            trenutnaFigura.kreni(this,pomjeraj);
         }
+
     }
 }
