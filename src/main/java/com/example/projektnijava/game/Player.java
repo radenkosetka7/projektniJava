@@ -21,6 +21,11 @@ public class Player {
         return zavrsioKretanje;
     }
 
+
+    public String getIme() {
+        return ime;
+    }
+
     public void setZavrsioKretanje(boolean zavrsioKretanje) {
         this.zavrsioKretanje = zavrsioKretanje;
     }

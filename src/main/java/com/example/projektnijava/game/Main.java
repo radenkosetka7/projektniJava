@@ -30,14 +30,17 @@ public class Main {
 
     public String znacenjeKarte(Object... a) {
         String x = "";
-        if (a.length == 1) {
-            x = "Na potezu je " + a;
-        }
-        else if(a.length==2)
+        if (a.length == 1) //saljem broj rupa
         {
-            Card k=(Card) a[0];
-            Player p=(Player) a[1];
-            x = k+" " +p;
+            x = "Specijalna karta, kreirano je " + a +" rupa.";
+        }
+        else if(a.length==4)//ako je obicna ide igrac i pocetna i krajnja pozicija
+        {
+            String nazivIgraca = (String) a[0];
+            String nazivFigure = (String) a[1];
+            int pocetnaPozicija= (int) a[2];
+            int krajnjaPozicija= (int) a[3];
+            x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ " se pomjera sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
         }
         return x;
     }
