@@ -1,7 +1,9 @@
 package com.example.projektnijava.game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.example.projektnijava.game.Main.*;
 
@@ -36,8 +38,19 @@ public class SimpleFigure extends Figure {
         }
         int tmp = valueList.indexOf(trenutnaPozicija);
         Position poljeNaKojeStaje = valueList.get(tmp + brojKoraka);
-        int a = valueList.indexOf(poljeNaKojeStaje);
-        int b = valueList.indexOf(poljeNaKojeStaje);
+        int a=0;
+        int b=0;
+        for(Map.Entry<Integer,Position> p: putanjaFigure.entrySet())
+        {
+            if(p.getValue().equals(poljeSaKojegKrece))
+            {
+                a=p.getKey();
+            }
+            if(p.getValue().equals(poljeNaKojeStaje))
+            {
+                b=p.getKey();
+            }
+        }
         mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b);
 
         while (i < brojKoraka) {
