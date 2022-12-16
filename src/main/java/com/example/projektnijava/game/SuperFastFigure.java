@@ -2,9 +2,9 @@ package com.example.projektnijava.game;
 
 public class SuperFastFigure extends Figure implements SuperFastInterface{
 
-    private ColorOfFIgure boja;
 
-    public SuperFastFigure() {
+    public SuperFastFigure(ColorOfFIgure boja) {
+        super(boja);
 
     }
 
@@ -13,7 +13,4 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
 
     }
 
-    public SuperFastFigure(ColorOfFIgure boja) {
-        this.boja = boja;
-    }
 }

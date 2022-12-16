@@ -1,10 +1,9 @@
 package com.example.projektnijava.game;
 
 public class HoverFigure extends Figure {
-    private ColorOfFIgure boja;
 
-    public HoverFigure() {
-
+    public HoverFigure(ColorOfFIgure boja) {
+        super(boja);
     }
 
     @Override
@@ -12,7 +11,4 @@ public class HoverFigure extends Figure {
 
     }
 
-    public HoverFigure(ColorOfFIgure boja) {
-        this.boja = boja;
-    }
 }

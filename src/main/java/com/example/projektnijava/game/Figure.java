@@ -15,7 +15,8 @@ public abstract class Figure {
     //doradi ovo klasu
 
 
-    public Figure() {
+    public Figure(ColorOfFIgure boja) {
+        this.boja=boja;
         trenutnaPozicija = Main.putanjaFigure.get(0);//jel ovo ok??
         pocetnaPozicija = trenutnaPozicija;
         int size=Main.putanjaFigure.size();

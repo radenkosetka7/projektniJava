@@ -4,16 +4,12 @@ import static com.example.projektnijava.game.Main.mc;
 
 public class SimpleFigure extends Figure {
 
-    private ColorOfFIgure boja;
     private int dodatniKoraci = 0;
 
-    public SimpleFigure() {
-
-    }
-
     public SimpleFigure(ColorOfFIgure boja) {
-        setBoja(boja);
+        super(boja);
     }
+
 
     public int getDodatniKoraci() {
         return dodatniKoraci;
@@ -21,16 +17,6 @@ public class SimpleFigure extends Figure {
 
     public void setDodatniKoraci(int dodatniKoraci) {
         this.dodatniKoraci = dodatniKoraci;
-    }
-
-    @Override
-    public ColorOfFIgure getBoja() {
-        return boja;
-    }
-
-    @Override
-    public void setBoja(ColorOfFIgure boja) {
-        this.boja = boja;
     }
 
     @Override

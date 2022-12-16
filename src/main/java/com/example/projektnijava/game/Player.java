@@ -9,12 +9,15 @@ public class Player {
     private final String ime;
     private boolean zavrsioKretanje = false;
     private Random rand = new Random();
+    private ColorOfFIgure bojaIgraca;
 
     private final ArrayList<Figure> figureIgraca = new ArrayList<>(brojFigura);
 
     public Player(ColorOfFIgure boja) {
-        this("Igrač " + (id), boja);
+        this.ime="Igrač " + id;
+        this.bojaIgraca =boja;
         id++;
+        dodajFigure(this.bojaIgraca);
     }
 
     public boolean isZavrsioKretanje() {
