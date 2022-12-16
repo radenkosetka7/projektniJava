@@ -25,7 +25,7 @@ public class SpecialCard extends Card{
         Random random=new Random();
         int brojRupa=random.nextInt(Main.dimenzijaMatrice-2)+2;
         int i=0;
-        Main.main.znacenjeKarte(brojRupa);
+        mc.znacenjeKarte(brojRupa);
         while(i<brojRupa)
         {
             List<Integer> valueList=new ArrayList<Integer>(Main.putanjaFigure.keySet());

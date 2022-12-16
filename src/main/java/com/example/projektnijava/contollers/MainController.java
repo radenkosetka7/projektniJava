@@ -48,16 +48,52 @@ public class MainController implements Initializable {
     private StackPane[][] matrica;
     public static boolean firstTime=true;
     public static int brojKlikova=0;
+    public static Main main;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         procitajSetup();
+        main=new Main();
         numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
+        List<Label> labele=new ArrayList<>();
         for(Player igrac:Main.igraci)
         {
             Label label=new Label(igrac.getIme());
-            if(igrac.get)
+            if(igrac.getBojaIgraca().equals(ColorOfFIgure.ZUTA))
+            {
+                label.setTextFill(Color.YELLOW);
+            }
+            else if(igrac.getBojaIgraca().equals(ColorOfFIgure.CRVENA))
+            {
+                label.setTextFill(Color.RED);
+            }
+            else if(igrac.getBojaIgraca().equals(ColorOfFIgure.PLAVA))
+            {
+                label.setTextFill(Color.BLUE);
+            }
+            else {
+                label.setTextFill(Color.GREEN);
+            }
+            labele.add(label);
         }
+        playersHBox.getChildren().addAll(labele);
+    }
+
+    public String znacenjeKarte(Object... a) {
+        String x = "";
+        if (a.length == 1) //saljem broj rupa
+        {
+            x = "Specijalna karta, kreirano je " + a +" rupa.";
+        }
+        else if(a.length==4)//ako je obicna ide igrac i pocetna i krajnja pozicija
+        {
+            String nazivIgraca = (String) a[0];
+            String nazivFigure = (String) a[1];
+            int pocetnaPozicija= (int) a[2];
+            int krajnjaPozicija= (int) a[3];
+            x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ " se pomjera sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
+        }
+        return x;
     }
 
 
@@ -247,7 +283,7 @@ public class MainController implements Initializable {
                 {
                     Platform.runLater(()->
                     {
-                        cardTextArea.setText(Main.main.znacenjeKarte());
+                        cardTextArea.setText(znacenjeKarte());
                     });
                     try
                     {
@@ -266,7 +302,7 @@ public class MainController implements Initializable {
         {
             Thread simulacija=trajanjeSimulacije();
             simulacija.start();
-            new Thread(()->Main.main.zapocniIgru()).start();
+            new Thread(()->main.zapocniIgru()).start();
             Thread poruke=prikaziOpisKarte();
             poruke.start();
             firstTime=false;

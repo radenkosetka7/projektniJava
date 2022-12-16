@@ -19,30 +19,12 @@ public class Main {
     public static Object[][] matrica;
     public static MainController mc = new MainController();
     public static Object pauza = new Object();
-    public static Main main = new Main();
     public static Random rand = new Random();
 
     public Main() {
         setujPutanjuFigure();
         addCards();
         addPlayers();
-    }
-
-    public String znacenjeKarte(Object... a) {
-        String x = "";
-        if (a.length == 1) //saljem broj rupa
-        {
-            x = "Specijalna karta, kreirano je " + a +" rupa.";
-        }
-        else if(a.length==4)//ako je obicna ide igrac i pocetna i krajnja pozicija
-        {
-            String nazivIgraca = (String) a[0];
-            String nazivFigure = (String) a[1];
-            int pocetnaPozicija= (int) a[2];
-            int krajnjaPozicija= (int) a[3];
-            x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ " se pomjera sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
-        }
-        return x;
     }
 
     public void setujPutanjuFigure() {
@@ -206,9 +188,12 @@ public class Main {
     public void addPlayers() {
         for (int i = 0; i < brojIgraca; i++) {
             List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
-             ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
-             colors.remove(tmpColor);
-            igraci.add(new Player(tmpColor));
+            Collections.shuffle(colors);
+            //ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
+            //colors.removeIf(e->e.equals(tmpColor));
+            // ColorOfFIgure tmpColor=colors.remove(0);
+            // colors.remove(tmpColor);
+            igraci.add(new Player(colors.get(i)));
         }
     }
 
