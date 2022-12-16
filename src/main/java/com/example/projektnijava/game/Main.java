@@ -6,18 +6,20 @@ import javafx.application.Platform;
 import java.io.File;
 import java.util.*;
 
+import static com.example.projektnijava.contollers.MainController.mc;
+
 public class Main {
 
-    public static HashMap<Integer, Position> putanjaFigure = new HashMap<>();
-    List<Card> karte = new ArrayList<>();
-    public static Set<Player> igraci = new HashSet<>();
+    public static LinkedHashMap<Integer, Position> putanjaFigure = new LinkedHashMap<>();
+    public static List<Card> karte = new ArrayList<>();
+    public static List<Player> igraci = new ArrayList<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
     public static boolean simulacijaZavrsena = false;
     public static boolean pauziranaSimulacija = false;
     public static long vrijemeIgre;
     public static Object[][] matrica;
-    public static MainController mc = new MainController();
+    //public static MainController mc = new MainController();
     public static Object pauza = new Object();
     public static Random rand = new Random();
 
@@ -25,6 +27,7 @@ public class Main {
         setujPutanjuFigure();
         addCards();
         addPlayers();
+        matrica=new Object[dimenzijaMatrice][dimenzijaMatrice];
     }
 
     public void setujPutanjuFigure() {
@@ -186,13 +189,9 @@ public class Main {
     }
 
     public void addPlayers() {
+        List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
+        Collections.shuffle(colors);
         for (int i = 0; i < brojIgraca; i++) {
-            List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
-            Collections.shuffle(colors);
-            //ColorOfFIgure tmpColor = colors.get(rand.nextInt(colors.size()));
-            //colors.removeIf(e->e.equals(tmpColor));
-            // ColorOfFIgure tmpColor=colors.remove(0);
-            // colors.remove(tmpColor);
             igraci.add(new Player(colors.get(i)));
         }
     }
@@ -214,10 +213,11 @@ public class Main {
     }
 
     public void zapocniIgru() {
-        GhostFigure figure = new GhostFigure();
-        figure.start();
+        /*GhostFigure figure = new GhostFigure();
+        figure.start();*/
 
         while (igraci.size() > 0) {
+            igraci.stream().map(e->e.getIme()).forEach(System.out::println);
             Card tmpKarta = karte.remove(0);
             //pozovi fju za stavljanje slike
             mc.postaviKartu(tmpKarta);

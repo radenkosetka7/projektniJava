@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.projektnijava.contollers.MainController.mc;
 import static com.example.projektnijava.game.Main.*;
 
 public class SuperFastFigure extends Figure implements SuperFastInterface{
@@ -70,17 +71,13 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
 
             if (trenutnaPozicija == krajnjaPozicija) {
                 setZavrsila(true);
+                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
+                matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
+                break;
             }
-            //nzm kako uzeti narendu poziciju iz hashMape lol
-            boolean found = false;
-            Integer nextKey = -1;
-            for (Integer key : Main.putanjaFigure.keySet()) {
-                if (!found) {
-                    nextKey = key.intValue();
-                    found = true;
-                }
-            }
-            found = false;
+
+            Position narednapozicija=valueList.get(valueList.indexOf(trenutnaPozicija)+1);
+
             mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
             matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
 
@@ -89,7 +86,7 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
             if (pomPoz > krajPoz) {
                 setZavrsila(true);
             } else {
-                trenutnaPozicija = Main.putanjaFigure.get(nextKey);
+                trenutnaPozicija = narednapozicija;
             }
 
             setDodatniKoraci(brojDodatnihBodova);

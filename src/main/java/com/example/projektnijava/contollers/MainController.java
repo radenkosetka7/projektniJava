@@ -49,11 +49,13 @@ public class MainController implements Initializable {
     public static boolean firstTime=true;
     public static int brojKlikova=0;
     public static Main main;
+    public static MainController mc;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         procitajSetup();
         main=new Main();
+        mc=this;
         numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
         List<Label> labele=new ArrayList<>();
         List<String> naziviFigura=new ArrayList<>();
@@ -144,7 +146,7 @@ public class MainController implements Initializable {
             GridPane gridPane=createGridPane(Main.dimenzijaMatrice,matrica);
             centerHBox.getChildren().add(1, gridPane);
             cardImageView.setStyle("-fx-background-color: WHITE");
-            Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
+            //Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -197,24 +199,43 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            ((Label)matrica[kolona][red].getChildren().get(0)).setGraphic(new ImageView(diamondSlika));
+            ((Label)this.matrica[red][kolona].getChildren().get(0)).setGraphic(new ImageView(diamondSlika));
         });
     }
     public void skloniDiamond(int red,int kolona)
     {
         Platform.runLater(()->
         {
-            ((Label)matrica[kolona][red].getChildren().get(0)).setGraphic(null);
+            ((Label)matrica[red][kolona].getChildren().get(0)).setGraphic(null);
         });
     }
 
-    public void postaviFiguru(int red, int kolona, String skracenica, ColorOfFIgure boja)
+    public void postaviFiguru(int red, int kolona, String skracenica,ColorOfFIgure boja)
     {
+        String x="";
+        if(boja.equals(ColorOfFIgure.PLAVA))
+        {
+            x="-fx-background-color: blue";
+        }
+        else if(boja.equals(ColorOfFIgure.CRVENA))
+        {
+            x="-fx-background-color: red";
+        }
+        else if(boja.equals(ColorOfFIgure.ZUTA))
+        {
+            x="-fx-background-color: yellow";
+        }
+        else if(boja.equals(ColorOfFIgure.ZELENA))
+        {
+            x="-fx-background-color: green";
+        }
+
+        String finalX = x;
         Platform.runLater(()->
         {
-            Label labela=(Label) matrica[kolona][red].getChildren().get(0);
+            Label labela=(Label) this.matrica[red][kolona].getChildren().get(0);
             labela.setText(skracenica);
-            labela.setStyle("-fx-background-color: " + boja);
+            labela.setStyle(finalX);
         });
     }
 
@@ -222,7 +243,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela=(Label) matrica[kolona][red].getChildren().get(0);
+            Label labela=(Label) this.matrica[red][kolona].getChildren().get(0);
             labela.setStyle("-fx-background-color: transparent");
         });
     }
@@ -231,7 +252,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela = (Label) matrica[kolona][red].getChildren().get(0);
+            Label labela = (Label) this.matrica[red][kolona].getChildren().get(0);
             labela.setStyle("-fx-background-color: black; -fx-border-color:black");
         });
     }
@@ -240,7 +261,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            Label labela = (Label) matrica[kolona][red].getChildren().get(0);
+            Label labela = (Label) matrica[red][kolona].getChildren().get(0);
             labela.setStyle("-fx-background-color: transparent; -fx-border-color:transparent");
         });
     }

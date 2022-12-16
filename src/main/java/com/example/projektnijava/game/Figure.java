@@ -1,5 +1,8 @@
 package com.example.projektnijava.game;
 
+import javafx.geometry.Pos;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +25,11 @@ public abstract class Figure {
         this.boja=boja;
         this.naziv="Naziv"+id;
         id++;
-        trenutnaPozicija = Main.putanjaFigure.get(0);//jel ovo ok??
+        List<Position> pozicije=new ArrayList<Position>(Main.putanjaFigure.values());
+        trenutnaPozicija = pozicije.get(0);//jel ovo ok??
         pocetnaPozicija = trenutnaPozicija;
         int size=Main.putanjaFigure.size();
-        krajnjaPozicija=Main.putanjaFigure.get(size);//ili size=1???
+        krajnjaPozicija=pozicije.get(size-1);//ili size=1???
     }
 
     public String getNaziv() {

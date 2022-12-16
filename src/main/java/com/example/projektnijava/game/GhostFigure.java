@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.projektnijava.game.Main.mc;
+import static com.example.projektnijava.contollers.MainController.mc;
+
 
 public class GhostFigure extends Thread{
 

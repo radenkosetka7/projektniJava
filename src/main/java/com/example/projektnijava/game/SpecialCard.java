@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.projektnijava.game.Main.mc;
+import static com.example.projektnijava.contollers.MainController.mc;
 import static java.lang.Thread.sleep;
 
 public class SpecialCard extends Card{
@@ -22,7 +22,7 @@ public class SpecialCard extends Card{
     public void dodajRupu()
     {
 
-        Random random=new Random();
+       /* Random random=new Random();
         int brojRupa=random.nextInt(Main.dimenzijaMatrice-2)+2;
         int i=0;
         mc.znacenjeKarte(brojRupa);
@@ -54,7 +54,7 @@ public class SpecialCard extends Card{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ukloniRupe();
+        ukloniRupe();*/
 
     }
 
