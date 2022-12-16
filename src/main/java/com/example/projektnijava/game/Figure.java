@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Figure {
 
@@ -21,7 +22,8 @@ public abstract class Figure {
     //doradi ovo klasu
 
 
-    public Figure(ColorOfFIgure boja) {
+    public Figure(ColorOfFIgure boja,String skracenica) {
+        this.skracenica=skracenica;
         this.boja=boja;
         this.naziv="Naziv"+id;
         id++;
@@ -79,7 +81,6 @@ public abstract class Figure {
     public void setZavrsila(boolean zavrsila) {
         this.zavrsila = zavrsila;
     }
-
 
     public abstract void kreni(Player player, int brojKoraka);
 }

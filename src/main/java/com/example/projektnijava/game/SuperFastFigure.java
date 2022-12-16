@@ -11,7 +11,7 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
 
 
     public SuperFastFigure(ColorOfFIgure boja) {
-        super(boja);
+        super(boja,"SBF");
 
     }
 
@@ -71,14 +71,16 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
 
             if (trenutnaPozicija == krajnjaPozicija) {
                 setZavrsila(true);
-                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
+                int labela=mc.getKey(trenutnaPozicija);
+                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
                 matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
                 break;
             }
 
             Position narednapozicija=valueList.get(valueList.indexOf(trenutnaPozicija)+1);
 
-            mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
+            int labela=mc.getKey(trenutnaPozicija);
+            mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
             matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
 
             int pomPoz = valueList.indexOf(trenutnaPozicija) + 1;

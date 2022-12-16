@@ -1,16 +1,12 @@
 package com.example.projektnijava.contollers;
 
 import com.example.projektnijava.MainApplication;
-import com.example.projektnijava.game.Card;
-import com.example.projektnijava.game.ColorOfFIgure;
-import com.example.projektnijava.game.Main;
-import com.example.projektnijava.game.Player;
+import com.example.projektnijava.game.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -27,20 +23,25 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import static com.example.projektnijava.contollers.FigureMovementController.figura;
+import static com.example.projektnijava.game.Main.igraci;
 import static java.lang.Thread.sleep;
 
 public class MainController implements Initializable {
 
     public final Image diamondSlika=new Image(new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator +
-            "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toURI().toString(),10,10,false,false);
+            "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toURI().toString(),20,20,false,false);
     public Label numberOfRoundsPlayed=new Label();
     public Label numbersPlayedLabel=new Label();
     public BorderPane borderPane=new BorderPane();
     public Button startButton=new Button();
     public HBox playersHBox=new HBox();
-    public ListView figuresListView=new ListView();
+    public ListView<String> figuresListView=new ListView();
     public HBox centerHBox=new HBox();
     public TextArea cardTextArea=new TextArea();
     public ImageView cardImageView=new ImageView();
@@ -59,7 +60,7 @@ public class MainController implements Initializable {
         numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
         List<Label> labele=new ArrayList<>();
         List<String> naziviFigura=new ArrayList<>();
-        for(Player igrac:Main.igraci)
+        for(Player igrac: igraci)
         {
             Label label=new Label(igrac.getIme());
             if(igrac.getBojaIgraca().equals(ColorOfFIgure.ZUTA))
@@ -87,11 +88,11 @@ public class MainController implements Initializable {
         figuresListView.getItems().addAll(naziviFigura);
     }
 
-    public String znacenjeKarte(Object... a) {
+    public void znacenjeKarte(Object... a) {
         String x = "";
         if (a.length == 1) //saljem broj rupa
         {
-            x = "Specijalna karta, kreirano je " + a +" rupa.";
+            x = "Specijalna karta, kreirano je " + a[0] +" rupa.";
         }
         else if(a.length==4)//ako je obicna ide igrac i pocetna i krajnja pozicija
         {
@@ -101,7 +102,7 @@ public class MainController implements Initializable {
             int krajnjaPozicija= (int) a[3];
             x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ " se pomjera sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
         }
-        return x;
+        cardTextArea.setText(x);
     }
 
 
@@ -148,7 +149,9 @@ public class MainController implements Initializable {
             cardImageView.setStyle("-fx-background-color: WHITE");
             //Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
+
         }
     }
 
@@ -238,12 +241,21 @@ public class MainController implements Initializable {
             labela.setStyle(finalX);
         });
     }
+    public int getKey(Position value) {
+        for (Map.Entry<Integer, Position> entry : Main.putanjaFigure.entrySet()) {
+            if (entry.getValue() == value) {
+                return entry.getKey();
+            }
+        }
+        return 0;
+    }
 
-    public void skloniFiguru(int red,int kolona)
+    public void skloniFiguru(int red,int kolona,Integer broj)
     {
         Platform.runLater(()->
         {
             Label labela=(Label) this.matrica[red][kolona].getChildren().get(0);
+            labela.setText(broj.toString());
             labela.setStyle("-fx-background-color: transparent");
         });
     }
@@ -285,7 +297,9 @@ public class MainController implements Initializable {
                     {
                         sleep(1000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
+
                     }
                     s++;
                     if(s>=60)
@@ -300,7 +314,7 @@ public class MainController implements Initializable {
         });
     }
 
-    private Thread prikaziOpisKarte()
+    /*private Thread prikaziOpisKarte()
     {
         return new Thread(()->
         {
@@ -316,12 +330,13 @@ public class MainController implements Initializable {
                     {
                         sleep(1000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
                     }
                 }
             }
         });
-    }
+    }*/
 
     public void pokreniSimulaciju(ActionEvent actionEvent) {
 
@@ -330,15 +345,55 @@ public class MainController implements Initializable {
             Thread simulacija=trajanjeSimulacije();
             simulacija.start();
             new Thread(()->main.zapocniIgru()).start();
-            Thread poruke=prikaziOpisKarte();
-            poruke.start();
+            //Thread poruke=prikaziOpisKarte();
+            //poruke.start();
             firstTime=false;
         }
         startButton.setText("Zaustavi");
 
     }
 
-    public void prikaziKretanjeFigure(MouseEvent mouseEvent) {
+    public void prikaziKretanjeFigure(MouseEvent mouseEvent)
+    {
+        try {
+            String selectedItem = figuresListView.getSelectionModel().getSelectedItem();
+            Figure izabranaFigura=null;
+            if(selectedItem==null)
+            {
+                return;
+            }
+            else
+            {
+                List<Figure> figures=new ArrayList<>();
+                for(Player p:igraci)
+                {
+                    for(Figure f:p.getFigureIgraca())
+                    {
+                        figures.add(f);
+                    }
+                }
+                for(Figure f:figures)
+                {
+                    if(f.getNaziv().equals(selectedItem))
+                    {
+                        izabranaFigura=f;
+                        break;
+                    }
+                }
+            }
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("figureMovement.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600, Color.GRAY);
+            Stage newStage=new Stage();
+            newStage.setTitle("Figura");
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.show();
+            figura.prikaziPredjeniPut(izabranaFigura);
+        }
+        catch (Exception e)
+        {
+            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+        }
     }
 
     public void prikaziRezultate(ActionEvent actionEvent) throws IOException {
@@ -355,7 +410,8 @@ public class MainController implements Initializable {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
         }
     }
 }

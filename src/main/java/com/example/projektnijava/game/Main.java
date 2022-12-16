@@ -213,11 +213,10 @@ public class Main {
     }
 
     public void zapocniIgru() {
-        /*GhostFigure figure = new GhostFigure();
-        figure.start();*/
+        GhostFigure figure = new GhostFigure();
+        figure.start();
 
         while (igraci.size() > 0) {
-            igraci.stream().map(e->e.getIme()).forEach(System.out::println);
             Card tmpKarta = karte.remove(0);
             //pozovi fju za stavljanje slike
             mc.postaviKartu(tmpKarta);

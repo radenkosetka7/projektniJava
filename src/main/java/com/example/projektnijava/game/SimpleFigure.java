@@ -12,7 +12,7 @@ public class SimpleFigure extends Figure {
 
 
     public SimpleFigure(ColorOfFIgure boja) {
-        super(boja);
+        super(boja,"OF");
     }
 
 
@@ -72,7 +72,8 @@ public class SimpleFigure extends Figure {
 
             if (trenutnaPozicija == krajnjaPozicija) {
                 setZavrsila(true);
-                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
+                int labela=mc.getKey(trenutnaPozicija);
+                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
                 matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
                 break;
             }
@@ -83,7 +84,8 @@ public class SimpleFigure extends Figure {
                 break;
             }
 
-            mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
+            int labela=mc.getKey(trenutnaPozicija);
+            mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
             matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
 
             int pomPoz = valueList.indexOf(trenutnaPozicija) + 1;

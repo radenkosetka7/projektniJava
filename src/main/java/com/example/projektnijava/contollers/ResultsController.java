@@ -1,5 +1,6 @@
 package com.example.projektnijava.contollers;
 
+import com.example.projektnijava.game.MyLogger;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -12,6 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class ResultsController implements Initializable {
@@ -36,7 +39,8 @@ public class ResultsController implements Initializable {
             }
             content.setText(resultStringBuilder.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+           Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
         }
 
     }

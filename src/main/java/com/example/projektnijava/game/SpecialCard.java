@@ -1,9 +1,10 @@
 package com.example.projektnijava.game;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
 import static java.lang.Thread.sleep;
@@ -22,7 +23,7 @@ public class SpecialCard extends Card{
     public void dodajRupu()
     {
 
-       /* Random random=new Random();
+       Random random=new Random();
         int brojRupa=random.nextInt(Main.dimenzijaMatrice-2)+2;
         int i=0;
         mc.znacenjeKarte(brojRupa);
@@ -43,7 +44,8 @@ public class SpecialCard extends Card{
                 {
                     Figure figura=(Figure)Main.matrica[pozicija.getX()][pozicija.getY()];
                     figura.setZavrsila(true);
-                    mc.skloniFiguru(pozicija.getX(),pozicija.getY());
+                    int labela=mc.getKey(pozicija);
+                    mc.skloniFiguru(pozicija.getX(), pozicija.getY(),labela);
                     Main.matrica[pozicija.getX()][pozicija.getY()]=null;
                 }
             }
@@ -52,9 +54,10 @@ public class SpecialCard extends Card{
         {
             sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
         }
-        ukloniRupe();*/
+        ukloniRupe();
 
     }
 
@@ -63,7 +66,7 @@ public class SpecialCard extends Card{
         for(Position rupa:rupe)
         {
            mc.skloniRupu(rupa.getX(), rupa.getY());
-           rupe.remove(rupa);
+           //rupe.remove(rupa);
         }
         rupe.clear();
     }

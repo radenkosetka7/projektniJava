@@ -4,6 +4,8 @@ package com.example.projektnijava.game;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
 
@@ -32,7 +34,8 @@ public class GhostFigure extends Thread{
                     }
                     catch (Exception e)
                     {
-                        e.printStackTrace();
+                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
                     }
                 }
             }
@@ -57,7 +60,9 @@ public class GhostFigure extends Thread{
             {
                 sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
+
             }
             obrisiDijamante();
         }
@@ -68,7 +73,7 @@ public class GhostFigure extends Thread{
         for(Position dijamant:dijamanti)
         {
             mc.skloniDiamond(dijamant.getX(),dijamant.getY());
-            dijamanti.remove(dijamant);
+            //dijamanti.remove(dijamant);
         }
         dijamanti.clear();
     }
