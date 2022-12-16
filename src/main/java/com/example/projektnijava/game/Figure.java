@@ -8,6 +8,7 @@ public abstract class Figure {
     private ColorOfFIgure boja;
     private String skracenica;
     private boolean zavrsila=false;
+    private int dodatniKoraci = 0;
     public Position trenutnaPozicija;
     public Position pocetnaPozicija;
     public Position krajnjaPozicija;
@@ -23,6 +24,13 @@ public abstract class Figure {
         krajnjaPozicija=Main.putanjaFigure.get(size);//ili size=1???
     }
 
+    public int getDodatniKoraci() {
+        return dodatniKoraci;
+    }
+
+    public void setDodatniKoraci(int dodatniKoraci) {
+        this.dodatniKoraci = dodatniKoraci;
+    }
 
     public List<Position> getFiguraPresla() {
         return figuraPresla;

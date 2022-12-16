@@ -1,23 +1,20 @@
 package com.example.projektnijava.game;
 
-import static com.example.projektnijava.game.Main.mc;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.projektnijava.game.Main.*;
 
 public class SimpleFigure extends Figure {
 
-    private int dodatniKoraci = 0;
+
 
     public SimpleFigure(ColorOfFIgure boja) {
         super(boja);
     }
 
 
-    public int getDodatniKoraci() {
-        return dodatniKoraci;
-    }
 
-    public void setDodatniKoraci(int dodatniKoraci) {
-        this.dodatniKoraci = dodatniKoraci;
-    }
 
     @Override
     public void kreni(Player igrac, int brojKoraka) {
@@ -25,15 +22,28 @@ public class SimpleFigure extends Figure {
         int i = 0;
         int brojDodatnihBodova = 0;
         brojKoraka += getDodatniKoraci();
-//       if(brojKoraka> Main.putanjaFigure.size())
-//       {
-//           //nesto nemam pojma pisem isti kod kao kod sebe moramo smisliti neku foricu s ovim helppp!!!!!!
-       // treba nesto nadtimati da nikad ne dodje kao na polje vece od poslednjeg polja odma ovde
-//       }
+        Position poljeSaKojegKrece = trenutnaPozicija;
+        List<Position> valueList = new ArrayList<Position>(Main.putanjaFigure.values());
+        Integer pozicija = valueList.indexOf(trenutnaPozicija);
+        Position tmpPosition = valueList.get(pozicija + brojKoraka);
+        if (matrica[tmpPosition.getX()][tmpPosition.getY()] instanceof Figure) {
+
+            while (true) {
+                brojKoraka++;
+                Position tmpPosition2 = valueList.get(pozicija + brojKoraka);
+                if (!(matrica[tmpPosition2.getX()][tmpPosition2.getY()] instanceof Figure)) {
+                    break;
+                }
+
+            }
+        }
+        int tmp = valueList.indexOf(trenutnaPozicija);
+        Position poljeNaKojeStaje = valueList.get(tmp + brojKoraka);
+
 
         while (i < brojKoraka) {
 
-
+            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = this;
             mc.postaviFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(), this.getSkracenica(), this.getBoja());
             figuraPresla.add(trenutnaPozicija);
             if (Main.matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] instanceof GhostFigure) {
@@ -47,9 +57,8 @@ public class SimpleFigure extends Figure {
                 e.printStackTrace();
             }
 
-            if(trenutnaPozicija == krajnjaPozicija)
-            {
-                break;
+            if (trenutnaPozicija == krajnjaPozicija) {
+                setZavrsila(true);
             }
             //nzm kako uzeti narendu poziciju iz hashMape lol
             boolean found = false;
@@ -62,10 +71,18 @@ public class SimpleFigure extends Figure {
             }
             found = false;
             mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY());
-            trenutnaPozicija = Main.putanjaFigure.get(nextKey);
+            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
+
+            int pomPoz = valueList.indexOf(trenutnaPozicija) + 1;
+            int krajPoz = valueList.indexOf(krajnjaPozicija);
+            if (pomPoz > krajPoz) {
+                setZavrsila(true);
+            } else {
+                trenutnaPozicija = Main.putanjaFigure.get(nextKey);
+            }
+
             setDodatniKoraci(brojDodatnihBodova);
             i++;
-
         }
     }
 
