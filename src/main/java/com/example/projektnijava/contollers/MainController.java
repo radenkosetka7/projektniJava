@@ -56,6 +56,7 @@ public class MainController implements Initializable {
         main=new Main();
         numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
         List<Label> labele=new ArrayList<>();
+        List<String> naziviFigura=new ArrayList<>();
         for(Player igrac:Main.igraci)
         {
             Label label=new Label(igrac.getIme());
@@ -75,8 +76,13 @@ public class MainController implements Initializable {
                 label.setTextFill(Color.GREEN);
             }
             labele.add(label);
+            for(int i=0;i<igrac.getFigureIgraca().size();i++)
+            {
+                naziviFigura.add(igrac.getFigureIgraca().get(i).getNaziv());
+            }
         }
         playersHBox.getChildren().addAll(labele);
+        figuresListView.getItems().addAll(naziviFigura);
     }
 
     public String znacenjeKarte(Object... a) {

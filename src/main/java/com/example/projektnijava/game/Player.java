@@ -11,6 +11,10 @@ public class Player {
     private Random rand = new Random();
     private ColorOfFIgure bojaIgraca;
 
+    public ArrayList<Figure> getFigureIgraca() {
+        return figureIgraca;
+    }
+
     private final ArrayList<Figure> figureIgraca = new ArrayList<>(brojFigura);
 
     public Player(ColorOfFIgure boja) {
