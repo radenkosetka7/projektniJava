@@ -56,7 +56,7 @@ public class MainController implements Initializable {
         for(Player igrac:Main.igraci)
         {
             Label label=new Label(igrac.getIme());
-            //if(igrac.get)
+            if(igrac.get)
         }
     }
 
