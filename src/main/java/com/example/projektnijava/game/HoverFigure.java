@@ -35,6 +35,9 @@ public class HoverFigure extends Figure {
         }
         int tmp = valueList.indexOf(trenutnaPozicija);
         Position poljeNaKojeStaje = valueList.get(tmp + brojKoraka);
+        int a = valueList.indexOf(poljeNaKojeStaje);
+        int b = valueList.indexOf(poljeNaKojeStaje);
+        mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b);
 
 
         while (i < brojKoraka) {

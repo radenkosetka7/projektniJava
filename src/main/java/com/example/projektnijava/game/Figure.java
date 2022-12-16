@@ -6,6 +6,7 @@ import java.util.List;
 public abstract class Figure {
 
     private ColorOfFIgure boja;
+    private String naziv;
     private String skracenica;
     private boolean zavrsila=false;
     private int dodatniKoraci = 0;
@@ -13,15 +14,26 @@ public abstract class Figure {
     public Position pocetnaPozicija;
     public Position krajnjaPozicija;
     List<Position> figuraPresla = new ArrayList<>();
+    public static int id = 1;
     //doradi ovo klasu
 
 
     public Figure(ColorOfFIgure boja) {
         this.boja=boja;
+        this.naziv="Naziv"+id;
+        id++;
         trenutnaPozicija = Main.putanjaFigure.get(0);//jel ovo ok??
         pocetnaPozicija = trenutnaPozicija;
         int size=Main.putanjaFigure.size();
         krajnjaPozicija=Main.putanjaFigure.get(size);//ili size=1???
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 
     public int getDodatniKoraci() {

@@ -8,12 +8,9 @@ import static com.example.projektnijava.game.Main.*;
 public class SimpleFigure extends Figure {
 
 
-
     public SimpleFigure(ColorOfFIgure boja) {
         super(boja);
     }
-
-
 
 
     @Override
@@ -39,7 +36,9 @@ public class SimpleFigure extends Figure {
         }
         int tmp = valueList.indexOf(trenutnaPozicija);
         Position poljeNaKojeStaje = valueList.get(tmp + brojKoraka);
-
+        int a = valueList.indexOf(poljeNaKojeStaje);
+        int b = valueList.indexOf(poljeNaKojeStaje);
+        mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b);
 
         while (i < brojKoraka) {
 
