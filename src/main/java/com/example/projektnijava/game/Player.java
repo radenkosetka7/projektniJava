@@ -75,4 +75,12 @@ public class Player {
         }
 
     }
+
+    public ColorOfFIgure getBojaIgraca() {
+        return bojaIgraca;
+    }
+
+    public void setBojaIgraca(ColorOfFIgure bojaIgraca) {
+        this.bojaIgraca = bojaIgraca;
+    }
 }
