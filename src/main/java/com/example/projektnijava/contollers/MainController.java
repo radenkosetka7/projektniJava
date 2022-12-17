@@ -382,7 +382,7 @@ public class MainController implements Initializable {
                     }
                 }
             }
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("figureMovement.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("figureMovement.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600, Color.GRAY);
             Stage newStage=new Stage();
             newStage.setTitle("Figura");
