@@ -284,12 +284,12 @@ public class MainController implements Initializable {
     {
         return new Thread(()-> {
 
-            int m=0,s=0;
+            int m=0,s=0,i=0;
             while(!Main.simulacijaZavrsena)
             {
                 if(!Main.pauziranaSimulacija)
                 {
-                    Main.vrijemeIgre=s;
+                    Main.vrijemeIgre=i;
                     String formatiranoVrijeme=String.format("%d m %d s",m,s);
                     Platform.runLater(()->
                     {
@@ -304,6 +304,7 @@ public class MainController implements Initializable {
 
                     }
                     s++;
+                    i++;
                     if(s>=60)
                     {
                         m++;
@@ -316,6 +317,7 @@ public class MainController implements Initializable {
                     System.out.print("");
                 }
             }
+            startButton.setDisable(true);
 
         });
     }
