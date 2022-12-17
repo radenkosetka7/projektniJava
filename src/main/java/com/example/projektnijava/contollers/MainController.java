@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.FigureMovementController.figura;
 import static com.example.projektnijava.game.Main.igraci;
+import static com.example.projektnijava.game.MyLogger.logger;
 import static java.lang.Thread.sleep;
 
 public class MainController implements Initializable {
@@ -393,7 +394,7 @@ public class MainController implements Initializable {
         }
         catch (Exception e)
         {
-            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+            logger.severe(e.fillInStackTrace().toString());
         }
     }
 
