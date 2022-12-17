@@ -1,0 +1,14 @@
+Igrac1 - Igrač 1
+Figura1(SBF, CRVENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+Figura2(OF, CRVENA) - predjeni put (4-12-20-28-34-40-46-38) - stigla do cilja? ne
+Figura3(SBF, CRVENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+Figura4(OF, CRVENA) - predjeni put (4-12-20-28-34-40-46-38-30) - stigla do cilja? ne
+
+Igrac2 - Igrač 2
+Figura5(OF, ZELENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+Figura6(OF, ZELENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+Figura7(OF, ZELENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+Figura8(SBF, ZELENA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
+
+
+Ukupno vrijeme trajanja igre: 56[s]
