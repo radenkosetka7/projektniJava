@@ -40,7 +40,7 @@ public class Main {
                 matrica[i][j]=new Matrix();
             }
         }
-        tempIgraci=igraci;
+
     }
 
     public void setujPutanjuFigure() {
@@ -205,7 +205,9 @@ public class Main {
         List<ColorOfFIgure> colors = Arrays.asList(ColorOfFIgure.values());
         Collections.shuffle(colors);
         for (int i = 0; i < brojIgraca; i++) {
-            igraci.add(new Player(colors.get(i)));
+            Player player=new Player(colors.get(i));
+            igraci.add(player);
+            tempIgraci.add(player);
         }
     }
 
@@ -229,7 +231,7 @@ public class Main {
         GhostFigure figure = new GhostFigure();
         figure.start();
 
-        while (igraci.size() > 0)
+        while (tempIgraci.size() > 0)
       {
             Card tmpKarta = karte.remove(0);
             //pozovi fju za stavljanje slike
@@ -238,12 +240,12 @@ public class Main {
                 ((SpecialCard) tmpKarta).dodajRupu();
 
             } else if (tmpKarta instanceof OrdinaryCard) {
-                Player tmpIgrac = igraci.stream().findFirst().get();//uzme prvog igraca
-                igraci.remove(tmpIgrac);
+                Player tmpIgrac = tempIgraci.stream().findFirst().get();//uzme prvog igraca
+                tempIgraci.remove(tmpIgrac);
                 int brojPolja = ((OrdinaryCard) tmpKarta).getBrojPolja();
                 tmpIgrac.igracNaPotezu(brojPolja);
                  if (!tmpIgrac.isZavrsioKretanje()) {
-                    igraci.add(tmpIgrac);
+                    tempIgraci.add(tmpIgrac);
                 }
 
             }
@@ -251,7 +253,9 @@ public class Main {
 
         }
         simulacijaZavrsena=true;
+        System.out.println("Pocni upis u fajl");
         saveResults();
+        System.out.println("Gotov upis u fajl");
     }
 
     public void saveResults()
@@ -264,7 +268,7 @@ public class Main {
             FileWriter fileWriter=new FileWriter(fileName);
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
             String tekst="";
-            for(Player p:tempIgraci)
+            for(Player p:igraci)
             {
 
                 String parts[]=p.getIme().split(" ");
@@ -278,14 +282,17 @@ public class Main {
                         int broj=mc.getKey(position);
                         tmpPutanjaFigure+=broj+"-";
                     }
+                    String pomMilana=tmpPutanjaFigure.substring(0,tmpPutanjaFigure.length()-1);
                     String stigla=f.isUspjesnoZavrsila()?"da":"ne";
-                    tekst+=tmpPutanjaFigure+") - stigla do cilja? " + stigla +"\n";
+                    tekst+=pomMilana+") - stigla do cilja? " + stigla +"\n";
 
                 }
 
                 tekst+="\n";
             }
+            tekst+="\n";
 
+            tekst+="Ukupno vrijeme trajanja igre: " + vrijemeIgre + "[s]";
 
             //System.out.println(tekst);
             bufferedWriter.write(tekst);
