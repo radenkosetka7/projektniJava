@@ -18,8 +18,8 @@ public class Player {
     private final ArrayList<Figure> figureIgraca = new ArrayList<>(brojFigura);
 
     public Player(ColorOfFIgure boja) {
-        this.ime="Igrač " + id;
-        this.bojaIgraca =boja;
+        this.ime = "Igrač " + id;
+        this.bojaIgraca = boja;
         id++;
         dodajFigure(this.bojaIgraca);
     }
@@ -47,16 +47,14 @@ public class Player {
         for (int i = 0; i < brojFigura; i++) {
             int tip = rand.nextInt(3);
             Figure figure = null;
-            switch (tip) {
-                case 0:
-                    figure = new SimpleFigure(boja);
-                    break;
-                case 1:
-                    figure = new HoverFigure(boja);
-                    break;
-                case 2:
-                    figure = new SuperFastFigure(boja);
-                    break;
+            if (tip == 0) {
+                figure = new SimpleFigure(boja);
+            } else if (tip == 1) {
+                figure = new HoverFigure(boja);
+
+            } else if (tip == 2) {
+
+                figure = new SuperFastFigure(boja);
             }
             figureIgraca.add(figure);
         }
