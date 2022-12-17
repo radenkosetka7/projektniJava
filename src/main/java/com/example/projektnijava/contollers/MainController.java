@@ -294,7 +294,7 @@ public class MainController implements Initializable {
                     Platform.runLater(()->
                     {
                         timeLabel.setText(formatiranoVrijeme);
-                    });
+                    });c
                     try
                     {
                         sleep(1000);
