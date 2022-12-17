@@ -2,11 +2,15 @@ package com.example.projektnijava.game;
 
 import com.example.projektnijava.contollers.MainController;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 
 import static com.example.projektnijava.contollers.MainController.mc;
+import static com.example.projektnijava.game.MyLogger.logger;
 
 public class Main {
 
@@ -223,7 +227,8 @@ public class Main {
         GhostFigure figure = new GhostFigure();
         figure.start();
 
-        while (igraci.size() > 0) {
+        while (igraci.size() > 0)
+      {
             Card tmpKarta = karte.remove(0);
             //pozovi fju za stavljanje slike
             mc.postaviKartu(tmpKarta);
@@ -241,8 +246,56 @@ public class Main {
 
             }
             karte.add(tmpKarta);
+
         }
+        saveResults();
+    }
+
+    public void saveResults()
+    {
+        try
+        {
+            String fileName = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" +
+                    File.separator + "example" + File.separator + "projektnijava" + File.separator + "results" + File.separator +
+                    String.format("IGRA_%d.txt", Calendar.getInstance().getTimeInMillis());
+            FileWriter fileWriter=new FileWriter(fileName);
+            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+            String tekst="";
+            for(Player p:igraci)
+            {
+
+                String parts[]=p.getIme().split(" ");
+                int i=Integer.parseInt(parts[1]);
+                String pom="Igrac" +i;
+                tekst+=pom+" - " + p.getIme() + "\n";
+                for(Figure f:p.getFigureIgraca()) {
+                    tekst += f.getNaziv() + "(" + f.getSkracenica() + ", " + f.getBoja() + ") - predjeni put (";
+                    String tmpPutanjaFigure = "";
+                    for (Position position : f.getFiguraPresla()) {
+
+                        for (Map.Entry<Integer, Position> m : putanjaFigure.entrySet()) {
+                            if (m.getValue().equals(position)) {
+                                tmpPutanjaFigure += m.getKey() + "-";
+                            }
+                        }
+                    }
+                    tekst+=tmpPutanjaFigure+") - stigla do cilja? ( treba nam pomocna dal je stigla do cilja)" +"\n";
+
+                }
+
+                tekst+="\n";
+            }
 
 
+            //System.out.println(tekst);
+            bufferedWriter.write(tekst);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+
+        }
+        catch(Exception e)
+        {
+            logger.severe(e.fillInStackTrace().toString());
+        }
     }
 }

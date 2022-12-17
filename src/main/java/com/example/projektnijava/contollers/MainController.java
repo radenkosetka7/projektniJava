@@ -151,7 +151,7 @@ public class MainController implements Initializable {
             cardImageView.setStyle("-fx-background-color: WHITE");
             //Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
         } catch (Exception e) {
-            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+            logger.severe(e.fillInStackTrace().toString());
 
 
         }
@@ -299,7 +299,7 @@ public class MainController implements Initializable {
                     {
                         sleep(1000);
                     } catch (InterruptedException e) {
-                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                        logger.severe(e.fillInStackTrace().toString());
 
 
                     }
@@ -383,7 +383,7 @@ public class MainController implements Initializable {
                     }
                 }
             }
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("figureMovement.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("figureMovement.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600, Color.GRAY);
             Stage newStage=new Stage();
             newStage.setTitle("Figura");
@@ -412,7 +412,7 @@ public class MainController implements Initializable {
         }
         catch (Exception e)
         {
-            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+            logger.severe(e.fillInStackTrace().toString());
 
         }
     }

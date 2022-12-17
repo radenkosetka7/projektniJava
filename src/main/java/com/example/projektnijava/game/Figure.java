@@ -28,7 +28,7 @@ public abstract class Figure {
     public Figure(ColorOfFIgure boja,String skracenica) {
         this.skracenica=skracenica;
         this.boja=boja;
-        this.naziv="Naziv"+id;
+        this.naziv="Figura"+id;
         id++;
         List<Position> pozicije=new ArrayList<Position>(Main.putanjaFigure.values());
         trenutnaPozicija = pozicije.get(0);//jel ovo ok??
