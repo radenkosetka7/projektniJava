@@ -47,10 +47,10 @@ public class GhostFigure extends Thread{
                 List<Integer> valueList=new ArrayList<Integer>(Main.putanjaFigure.keySet());
                 Integer randomNum=valueList.get(random.nextInt(valueList.size()));
                 Position pozicija=Main.putanjaFigure.get(randomNum);
-                if(Main.matrica[pozicija.getX()][pozicija.getY()]==null)
+                if(Main.matrica[pozicija.getX()][pozicija.getY()].getDiamond()==null)
                 {
                     Diamond dijamant=new Diamond();
-                    Main.matrica[pozicija.getX()][pozicija.getY()]=dijamant;
+                    Main.matrica[pozicija.getX()][pozicija.getY()].setDiamond(dijamant);
                     mc.postaviDiamond(pozicija.getX(),pozicija.getY());
                     dijamanti.add(pozicija);
                     i++;
@@ -73,6 +73,7 @@ public class GhostFigure extends Thread{
         for(Position dijamant:dijamanti)
         {
             mc.skloniDiamond(dijamant.getX(),dijamant.getY());
+            Main.matrica[dijamant.getX()][dijamant.getY()].setDiamond(null);
             //dijamanti.remove(dijamant);
         }
         dijamanti.clear();

@@ -13,11 +13,14 @@ public abstract class Figure {
     private String naziv;
     private String skracenica;
     private boolean zavrsila=false;
-    private int dodatniKoraci = 0;
+    public int dodatniKoraci = 0;
     public Position trenutnaPozicija;
     public Position pocetnaPozicija;
     public Position krajnjaPozicija;
     List<Position> figuraPresla = new ArrayList<>();
+    public long vrijemeKretanja;
+    public long starTimer;
+    public  List<Position> valueList = new ArrayList<Position>(Main.putanjaFigure.values());
     public static int id = 1;
     //doradi ovo klasu
 

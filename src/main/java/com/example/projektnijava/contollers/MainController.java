@@ -94,13 +94,14 @@ public class MainController implements Initializable {
         {
             x = "Specijalna karta, kreirano je " + a[0] +" rupa.";
         }
-        else if(a.length==4)//ako je obicna ide igrac i pocetna i krajnja pozicija
+        else if(a.length==5)//ako je obicna ide igrac i pocetna i krajnja pozicija
         {
             String nazivIgraca = (String) a[0];
             String nazivFigure = (String) a[1];
             int pocetnaPozicija= (int) a[2];
             int krajnjaPozicija= (int) a[3];
-            x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ " se pomjera sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
+            int prelazi=(int)a[4];
+            x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ ", prelazi "+ prelazi +  " polja, pomjera se sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
         }
         cardTextArea.setText(x);
     }
@@ -265,7 +266,7 @@ public class MainController implements Initializable {
         Platform.runLater(()->
         {
             Label labela = (Label) this.matrica[red][kolona].getChildren().get(0);
-            labela.setStyle("-fx-background-color: black; -fx-border-color:black");
+            labela.setStyle("-fx-background-color: black;");
         });
     }
 
@@ -381,7 +382,7 @@ public class MainController implements Initializable {
                     }
                 }
             }
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("figureMovement.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("figureMovement.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600, Color.GRAY);
             Stage newStage=new Stage();
             newStage.setTitle("Figura");

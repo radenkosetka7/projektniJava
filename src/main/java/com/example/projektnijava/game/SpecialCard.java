@@ -32,21 +32,22 @@ public class SpecialCard extends Card{
             List<Integer> valueList=new ArrayList<Integer>(Main.putanjaFigure.keySet());
             Integer randomNum=valueList.get(random.nextInt(valueList.size()));
             Position pozicija=Main.putanjaFigure.get(randomNum);
-            if(!(Main.matrica[pozicija.getX()][pozicija.getY()] instanceof Hole))
+            if(Main.matrica[pozicija.getX()][pozicija.getY()].getHole()==null)
             {
                 Hole hole=new Hole();
                 rupe.add(pozicija);
-                Main.matrica[pozicija.getX()][pozicija.getY()]=hole;
+                Main.matrica[pozicija.getX()][pozicija.getY()].setHole(hole);
                 mc.postaviRupu(pozicija.getX(),pozicija.getY());
                 i++;
-                if(Main.matrica[pozicija.getX()][pozicija.getY()] instanceof Figure &&
-                    !(Main.matrica[pozicija.getX()][pozicija.getY()] instanceof SuperFastInterface))
+                if(Main.matrica[pozicija.getX()][pozicija.getY()].getFigure()!=null &&
+                    !(Main.matrica[pozicija.getX()][pozicija.getY()].getFigure() instanceof HoverFigure))
                 {
-                    Figure figura=(Figure)Main.matrica[pozicija.getX()][pozicija.getY()];
+                    System.out.println("FIGURA POJEDENAAAAAA");
+                    Figure figura=Main.matrica[pozicija.getX()][pozicija.getY()].getFigure();
                     figura.setZavrsila(true);
                     int labela=mc.getKey(pozicija);
                     mc.skloniFiguru(pozicija.getX(), pozicija.getY(),labela);
-                    Main.matrica[pozicija.getX()][pozicija.getY()]=null;
+                    Main.matrica[pozicija.getX()][pozicija.getY()].setFigure(null);
                 }
             }
         }
@@ -65,8 +66,18 @@ public class SpecialCard extends Card{
     {
         for(Position rupa:rupe)
         {
-           mc.skloniRupu(rupa.getX(), rupa.getY());
-           //rupe.remove(rupa);
+            if(Main.matrica[rupa.getX()][rupa.getY()].getFigure()!=null &&
+                Main.matrica[rupa.getX()][rupa.getY()].getFigure() instanceof HoverFigure)
+            {
+                mc.skloniRupu(rupa.getX(), rupa.getY());
+                Main.matrica[rupa.getX()][rupa.getY()].setHole(null);
+                mc.postaviFiguru(rupa.getX(),rupa.getY(),Main.matrica[rupa.getX()][rupa.getY()].getFigure().getSkracenica(),Main.matrica[rupa.getX()][rupa.getY()].getFigure().getBoja());
+            }
+            else {
+                mc.skloniRupu(rupa.getX(), rupa.getY());
+                Main.matrica[rupa.getX()][rupa.getY()].setHole(null);
+            }
+            //rupe.remove(rupa);
         }
         rupe.clear();
     }

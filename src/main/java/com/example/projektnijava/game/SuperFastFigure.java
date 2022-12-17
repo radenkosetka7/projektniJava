@@ -1,13 +1,11 @@
 package com.example.projektnijava.game;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
 import static com.example.projektnijava.game.Main.*;
 
-public class SuperFastFigure extends Figure implements SuperFastInterface{
+public class SuperFastFigure extends Figure {
 
 
     public SuperFastFigure(ColorOfFIgure boja) {
@@ -18,81 +16,121 @@ public class SuperFastFigure extends Figure implements SuperFastInterface{
     @Override
     public void kreni(Player igrac, int brojKoraka) {
 
-        int i = 0;
-        int brojDodatnihBodova = 0;
-        brojKoraka += getDodatniKoraci();
-        Position poljeSaKojegKrece = trenutnaPozicija;
-        List<Position> valueList = new ArrayList<Position>(Main.putanjaFigure.values());
+        starTimer=System.currentTimeMillis();
+        if(trenutnaPozicija.equals(pocetnaPozicija))
+        {
+            figuraPresla.add(trenutnaPozicija);
+            mc.postaviFiguru(trenutnaPozicija.getX(),trenutnaPozicija.getY(),this.getSkracenica(),this.getBoja());
+        }
+        int i=0;
+        brojKoraka+=getDodatniKoraci();
+        setDodatniKoraci(0);
+        brojKoraka*=2;
         Integer pozicija = valueList.indexOf(trenutnaPozicija);
-        Position tmpPosition = valueList.get(pozicija + brojKoraka);
-        if (matrica[tmpPosition.getX()][tmpPosition.getY()] instanceof Figure) {
-
-            while (true) {
+        Position tmpPosition=null;
+        if(pozicija+brojKoraka>=valueList.size())
+        {
+            tmpPosition=valueList.get(valueList.size()-1);
+        }
+        else {
+            tmpPosition = valueList.get(pozicija + brojKoraka);
+        }
+        if(matrica[tmpPosition.getX()][tmpPosition.getY()].getFigure()!=null)
+        {
+            while(true)
+            {
                 brojKoraka++;
                 Position tmpPosition2 = valueList.get(pozicija + brojKoraka);
-                if (!(matrica[tmpPosition2.getX()][tmpPosition2.getY()] instanceof Figure)) {
+                if (matrica[tmpPosition2.getX()][tmpPosition2.getY()].getFigure()==null) {
                     break;
                 }
 
             }
         }
-        int tmp = valueList.indexOf(trenutnaPozicija);
-        Position poljeNaKojeStaje = valueList.get(tmp + brojKoraka);
-        int a=0;
-        int b=0;
-        for(Map.Entry<Integer,Position> p: putanjaFigure.entrySet())
+        Position odredisnaPozicija=null;
+        if(pozicija+brojKoraka>=valueList.size())
         {
-            if(p.getValue().equals(poljeSaKojegKrece))
+            odredisnaPozicija=valueList.get(valueList.size()-1);
+        }
+        else {
+            odredisnaPozicija = valueList.get(pozicija + brojKoraka);
+        }
+        int a=mc.getKey(trenutnaPozicija);
+        int b=mc.getKey(odredisnaPozicija);
+        mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b,brojKoraka);
+        while(!trenutnaPozicija.equals(odredisnaPozicija))
+        {
+            if(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getDiamond()!=null)
             {
-                a=p.getKey();
+                dodatniKoraci++;
+                matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setDiamond(null);
+                mc.skloniDiamond(trenutnaPozicija.getX(),trenutnaPozicija.getY());
             }
-            if(p.getValue().equals(poljeNaKojeStaje))
+            Integer tempPosition=valueList.indexOf(trenutnaPozicija);
+            Position narednaPozicija=valueList.get(tempPosition+1);
+            if(matrica[narednaPozicija.getX()][narednaPozicija.getY()].getFigure()!=null)
             {
-                b=p.getKey();
+                try
+                {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                }
+                if(!(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=null &&
+                        matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=this))
+                {
+                    int key = mc.getKey(trenutnaPozicija);
+                    mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(), key);
+                    matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setFigure(null);
+                }
+                trenutnaPozicija=narednaPozicija;
+                figuraPresla.add(trenutnaPozicija);
+                continue;
+            }
+            else if(matrica[narednaPozicija.getX()][narednaPozicija.getY()].getFigure()==null)
+            {
+                try
+                {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                }
+                if(!(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=null &&
+                        matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=this))
+                {
+                    int key = mc.getKey(trenutnaPozicija);
+                    mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(), key);
+                    matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setFigure(null);
+                }
+                trenutnaPozicija=narednaPozicija;
+                figuraPresla.add(trenutnaPozicija);
+                mc.postaviFiguru(trenutnaPozicija.getX(),trenutnaPozicija.getY(),this.getSkracenica(),this.getBoja());
+                matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setFigure(this);
             }
         }
-        mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b);
-
-        while (i < brojKoraka) {
-
-            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = this;
-            mc.postaviFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(), this.getSkracenica(), this.getBoja());
-            figuraPresla.add(trenutnaPozicija);
-            if (Main.matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] instanceof GhostFigure) {
-                brojDodatnihBodova+=2;
-                mc.skloniDiamond(trenutnaPozicija.getX(), trenutnaPozicija.getY());
-            }
-
-            try {
+        if(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getDiamond()!=null)
+        {
+            dodatniKoraci++;
+            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setDiamond(null);
+            mc.skloniDiamond(trenutnaPozicija.getX(),trenutnaPozicija.getY());
+        }
+        Position zavrsnaPozicija=valueList.get(valueList.size()-1);
+        long endTimer=System.currentTimeMillis();
+        vrijemeKretanja+=(endTimer-starTimer);
+        if(trenutnaPozicija.equals(zavrsnaPozicija))
+        {
+            this.setZavrsila(true);
+            int key=mc.getKey(trenutnaPozicija);
+            try
+            {
                 Thread.sleep(1000);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (InterruptedException e) {
+                Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+
             }
-
-            if (trenutnaPozicija == krajnjaPozicija) {
-                setZavrsila(true);
-                int labela=mc.getKey(trenutnaPozicija);
-                mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
-                matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
-                break;
-            }
-
-            Position narednapozicija=valueList.get(valueList.indexOf(trenutnaPozicija)+1);
-
-            int labela=mc.getKey(trenutnaPozicija);
-            mc.skloniFiguru(trenutnaPozicija.getX(), trenutnaPozicija.getY(),labela);
-            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()] = null;
-
-            int pomPoz = valueList.indexOf(trenutnaPozicija) + 1;
-            int krajPoz = valueList.indexOf(krajnjaPozicija);
-            if (pomPoz > krajPoz) {
-                setZavrsila(true);
-            } else {
-                trenutnaPozicija = narednapozicija;
-            }
-
-            setDodatniKoraci(brojDodatnihBodova);
-            i++;
+            mc.skloniFiguru(trenutnaPozicija.getX(),trenutnaPozicija.getY(),key);
+            matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setFigure(null);
+            vrijemeKretanja/=1000;
         }
     }
 

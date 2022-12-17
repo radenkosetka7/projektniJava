@@ -18,7 +18,7 @@ public class Main {
     public static boolean simulacijaZavrsena = false;
     public static boolean pauziranaSimulacija = false;
     public static long vrijemeIgre;
-    public static Object[][] matrica;
+    public static Matrix[][] matrica;
     //public static MainController mc = new MainController();
     public static Object pauza = new Object();
     public static Random rand = new Random();
@@ -27,7 +27,14 @@ public class Main {
         setujPutanjuFigure();
         addCards();
         addPlayers();
-        matrica=new Object[dimenzijaMatrice][dimenzijaMatrice];
+        matrica=new Matrix[dimenzijaMatrice][dimenzijaMatrice];
+        for(int i=0;i<dimenzijaMatrice;i++)
+        {
+            for(int j=0;j<dimenzijaMatrice;j++)
+            {
+                matrica[i][j]=new Matrix();
+            }
+        }
     }
 
     public void setujPutanjuFigure() {
@@ -228,7 +235,7 @@ public class Main {
                 igraci.remove(tmpIgrac);
                 int brojPolja = ((OrdinaryCard) tmpKarta).getBrojPolja();
                 tmpIgrac.igracNaPotezu(brojPolja);
-                if (!tmpIgrac.isZavrsioKretanje()) {
+                 if (!tmpIgrac.isZavrsioKretanje()) {
                     igraci.add(tmpIgrac);
                 }
 
