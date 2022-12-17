@@ -17,8 +17,6 @@ public class MyLogger {
             handler = new FileHandler("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "logs.log",true);
             logger.addHandler(handler);
             logger.getLogger(MyLogger.class.getName()).setUseParentHandlers(false);
-           /* logger.addHandler(handler);
-            logger.getLogger(Main.class.getName()).setUseParentHandlers(false);*/
 
         }
         catch(IOException exception)

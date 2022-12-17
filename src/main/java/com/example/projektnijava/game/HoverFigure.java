@@ -123,6 +123,7 @@ public class HoverFigure extends Figure {
         if(trenutnaPozicija.equals(zavrsnaPozicija))
         {
             this.setZavrsila(true);
+            this.setUspjesnoZavrsila(true);
             int key=mc.getKey(trenutnaPozicija);
             try
             {

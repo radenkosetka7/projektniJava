@@ -22,6 +22,7 @@ public abstract class Figure {
     public long starTimer;
     public  List<Position> valueList = new ArrayList<Position>(Main.putanjaFigure.values());
     public static int id = 1;
+    private boolean uspjesnoZavrsila=false;
     //doradi ovo klasu
 
 
@@ -85,5 +86,14 @@ public abstract class Figure {
         this.zavrsila = zavrsila;
     }
 
+    public boolean isUspjesnoZavrsila() {
+        return uspjesnoZavrsila;
+    }
+
+    public void setUspjesnoZavrsila(boolean uspjesnoZavrsila) {
+        this.uspjesnoZavrsila = uspjesnoZavrsila;
+    }
+
     public abstract void kreni(Player player, int brojKoraka);
+
 }

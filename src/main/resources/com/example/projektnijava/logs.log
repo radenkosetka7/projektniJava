@@ -2,15 +2,27 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-12-17T16:28:33.619163700Z</date>
-  <millis>1671294513619</millis>
-  <nanos>163700</nanos>
+  <date>2022-12-17T19:48:11.585653300Z</date>
+  <millis>1671306491585</millis>
+  <nanos>653300</nanos>
   <sequence>0</sequence>
-  <logger>MyLog</logger>
+  <logger>Loger</logger>
   <level>SEVERE</level>
   <class>com.example.projektnijava.contollers.MainController</class>
   <method>prikaziKretanjeFigure</method>
-  <thread>19</thread>
+  <thread>18</thread>
+  <message>java.lang.IllegalStateException: Location is not set.</message>
+</record>
+<record>
+  <date>2022-12-17T19:48:12.387227100Z</date>
+  <millis>1671306492387</millis>
+  <nanos>227100</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
   <message>java.lang.IllegalStateException: Location is not set.</message>
 </record>
 </log>
@@ -18,63 +30,15 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-12-17T16:28:51.077365500Z</date>
-  <millis>1671294531077</millis>
-  <nanos>365500</nanos>
-  <sequence>0</sequence>
+  <date>2022-12-17T19:52:56.233595200Z</date>
+  <millis>1671306776233</millis>
+  <nanos>595200</nanos>
+  <sequence>3</sequence>
   <logger>Loger</logger>
   <level>SEVERE</level>
   <class>com.example.projektnijava.contollers.MainController</class>
   <method>prikaziKretanjeFigure</method>
-  <thread>19</thread>
-  <message>java.lang.IllegalStateException: Location is not set.</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2022-12-17T17:12:34.657427300Z</date>
-  <millis>1671297154657</millis>
-  <nanos>427300</nanos>
-  <sequence>0</sequence>
-  <logger>Loger</logger>
-  <level>SEVERE</level>
-  <class>com.example.projektnijava.game.Main</class>
-  <method>saveResults</method>
-  <thread>26</thread>
-  <message>java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 1</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2022-12-17T17:13:20.640974900Z</date>
-  <millis>1671297200640</millis>
-  <nanos>974900</nanos>
-  <sequence>0</sequence>
-  <logger>Loger</logger>
-  <level>SEVERE</level>
-  <class>com.example.projektnijava.game.Main</class>
-  <method>saveResults</method>
-  <thread>26</thread>
-  <message>java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2022-12-17T17:14:12.957403900Z</date>
-  <millis>1671297252957</millis>
-  <nanos>403900</nanos>
-  <sequence>0</sequence>
-  <logger>Loger</logger>
-  <level>SEVERE</level>
-  <class>com.example.projektnijava.game.Main</class>
-  <method>saveResults</method>
-  <thread>28</thread>
-  <message>java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1</message>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
 </record>
 </log>

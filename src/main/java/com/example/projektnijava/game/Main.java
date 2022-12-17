@@ -17,15 +17,16 @@ public class Main {
     public static LinkedHashMap<Integer, Position> putanjaFigure = new LinkedHashMap<>();
     public static List<Card> karte = new ArrayList<>();
     public static List<Player> igraci = new ArrayList<>();
+    public static List<Player> tempIgraci=new ArrayList<>();
     public static int dimenzijaMatrice;
     public static int brojIgraca;
-    public static boolean simulacijaZavrsena = false;
     public static boolean pauziranaSimulacija = false;
     public static long vrijemeIgre;
     public static Matrix[][] matrica;
     //public static MainController mc = new MainController();
     public static Object pauza = new Object();
     public static Random rand = new Random();
+    public static boolean simulacijaZavrsena=false;
 
     public Main() {
         setujPutanjuFigure();
@@ -39,6 +40,7 @@ public class Main {
                 matrica[i][j]=new Matrix();
             }
         }
+        tempIgraci=igraci;
     }
 
     public void setujPutanjuFigure() {
@@ -248,6 +250,7 @@ public class Main {
             karte.add(tmpKarta);
 
         }
+        simulacijaZavrsena=true;
         saveResults();
     }
 
@@ -261,7 +264,7 @@ public class Main {
             FileWriter fileWriter=new FileWriter(fileName);
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
             String tekst="";
-            for(Player p:igraci)
+            for(Player p:tempIgraci)
             {
 
                 String parts[]=p.getIme().split(" ");
@@ -272,14 +275,11 @@ public class Main {
                     tekst += f.getNaziv() + "(" + f.getSkracenica() + ", " + f.getBoja() + ") - predjeni put (";
                     String tmpPutanjaFigure = "";
                     for (Position position : f.getFiguraPresla()) {
-
-                        for (Map.Entry<Integer, Position> m : putanjaFigure.entrySet()) {
-                            if (m.getValue().equals(position)) {
-                                tmpPutanjaFigure += m.getKey() + "-";
-                            }
-                        }
+                        int broj=mc.getKey(position);
+                        tmpPutanjaFigure+=broj+"-";
                     }
-                    tekst+=tmpPutanjaFigure+") - stigla do cilja? ( treba nam pomocna dal je stigla do cilja)" +"\n";
+                    String stigla=f.isUspjesnoZavrsila()?"da":"ne";
+                    tekst+=tmpPutanjaFigure+") - stigla do cilja? " + stigla +"\n";
 
                 }
 

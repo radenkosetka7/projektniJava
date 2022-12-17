@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T19:48:11.585653300Z</date>
+  <millis>1671306491585</millis>
+  <nanos>653300</nanos>
+  <sequence>0</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.IllegalStateException: Location is not set.</message>
+</record>
+<record>
+  <date>2022-12-17T19:48:12.387227100Z</date>
+  <millis>1671306492387</millis>
+  <nanos>227100</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.IllegalStateException: Location is not set.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T19:52:56.233595200Z</date>
+  <millis>1671306776233</millis>
+  <nanos>595200</nanos>
+  <sequence>3</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>

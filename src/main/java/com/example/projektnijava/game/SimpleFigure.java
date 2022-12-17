@@ -126,6 +126,7 @@ public class SimpleFigure extends Figure {
 
             }
             this.setZavrsila(true);
+            this.setUspjesnoZavrsila(true);
             int key=mc.getKey(trenutnaPozicija);
             mc.skloniFiguru(trenutnaPozicija.getX(),trenutnaPozicija.getY(),key);
             matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].setFigure(null);
