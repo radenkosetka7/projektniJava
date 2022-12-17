@@ -1,8 +1,0 @@
-Igrac1 - Igrač 1
-Figura1(SBF, ZUTA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
-
-Igrac2 - Igrač 2
-Figura2(OF, PLAVA) - predjeni put (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - stigla do cilja? da
-
-
-Ukupno vrijeme trajanja igre: 53[s]
