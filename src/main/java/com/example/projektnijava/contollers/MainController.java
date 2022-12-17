@@ -313,7 +313,7 @@ public class MainController implements Initializable {
                 }
                 else
                 {
-
+                    System.out.print("");
                 }
             }
 
