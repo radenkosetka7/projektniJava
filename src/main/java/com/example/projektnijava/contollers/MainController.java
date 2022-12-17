@@ -311,50 +311,56 @@ public class MainController implements Initializable {
                     }
 
                 }
+                else
+                {
+
+                }
             }
 
         });
     }
 
-    /*private Thread prikaziOpisKarte()
-    {
-        return new Thread(()->
-        {
-            while(!Main.simulacijaZavrsena)
-            {
-                if(!Main.pauziranaSimulacija)
-                {
-                    Platform.runLater(()->
-                    {
-                        cardTextArea.setText(znacenjeKarte());
-                    });
-                    try
-                    {
-                        sleep(1000);
-                    } catch (InterruptedException e) {
-                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
-
-                    }
-                }
-            }
-        });
-    }*/
-
     public void pokreniSimulaciju(ActionEvent actionEvent) {
 
+        if (brojKlikova % 2 == 0) {
+            zapocniIgru();
+
+        } else {
+            pauzirajIgru();
+        }
+        brojKlikova++;
+    }
+
+    public void zapocniIgru()
+    {
         if(firstTime)
         {
             Thread simulacija=trajanjeSimulacije();
             simulacija.start();
             new Thread(()->main.zapocniIgru()).start();
-            //Thread poruke=prikaziOpisKarte();
-            //poruke.start();
             firstTime=false;
         }
         startButton.setText("Zaustavi");
-
+        setPauzu(false);
     }
 
+    public void pauzirajIgru()
+    {
+        startButton.setText("Pokreni");
+        setPauzu(true);
+    }
+
+    public void setPauzu(boolean flag)
+    {
+        synchronized (Main.pauza)
+        {
+            if(!flag)
+            {
+                Main.pauza.notifyAll();
+            }
+        }
+        Main.pauziranaSimulacija=flag;
+    }
     public void prikaziKretanjeFigure(MouseEvent mouseEvent)
     {
         try {

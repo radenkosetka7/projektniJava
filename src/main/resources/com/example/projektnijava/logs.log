@@ -42,3 +42,231 @@
   <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:15:47.510328100Z</date>
+  <millis>1671308147510</millis>
+  <nanos>328100</nanos>
+  <sequence>3</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:15:53.733086200Z</date>
+  <millis>1671308153733</millis>
+  <nanos>86200</nanos>
+  <sequence>6</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:16:37.543367900Z</date>
+  <millis>1671308197543</millis>
+  <nanos>367900</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:17:04.330695500Z</date>
+  <millis>1671308224330</millis>
+  <nanos>695500</nanos>
+  <sequence>8</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:17:12.583377600Z</date>
+  <millis>1671308232583</millis>
+  <nanos>377600</nanos>
+  <sequence>10</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:17:18.226247Z</date>
+  <millis>1671308238226</millis>
+  <nanos>247000</nanos>
+  <sequence>13</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:17:20.278087500Z</date>
+  <millis>1671308240278</millis>
+  <nanos>87500</nanos>
+  <sequence>15</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:17:43.076643200Z</date>
+  <millis>1671308263076</millis>
+  <nanos>643200</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:18:06.281201800Z</date>
+  <millis>1671308286281</millis>
+  <nanos>201800</nanos>
+  <sequence>4</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:21:50.720254200Z</date>
+  <millis>1671308510720</millis>
+  <nanos>254200</nanos>
+  <sequence>2</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:42:01.512810300Z</date>
+  <millis>1671309721512</millis>
+  <nanos>810300</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:43:30.768725800Z</date>
+  <millis>1671309810768</millis>
+  <nanos>725800</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:45:47.124362900Z</date>
+  <millis>1671309947124</millis>
+  <nanos>362900</nanos>
+  <sequence>2</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:48:32.739530800Z</date>
+  <millis>1671310112739</millis>
+  <nanos>530800</nanos>
+  <sequence>5</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+<record>
+  <date>2022-12-17T20:48:39.987965300Z</date>
+  <millis>1671310119987</millis>
+  <nanos>965300</nanos>
+  <sequence>7</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-17T20:56:39.930848100Z</date>
+  <millis>1671310599930</millis>
+  <nanos>848100</nanos>
+  <sequence>1</sequence>
+  <logger>Loger</logger>
+  <level>SEVERE</level>
+  <class>com.example.projektnijava.contollers.MainController</class>
+  <method>prikaziKretanjeFigure</method>
+  <thread>18</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "com.example.projektnijava.game.Figure.getFiguraPresla()" because "figura" is null</message>
+</record>
+</log>

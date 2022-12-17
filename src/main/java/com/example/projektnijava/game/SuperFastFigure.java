@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
 import static com.example.projektnijava.game.Main.*;
+import static com.example.projektnijava.game.MyLogger.logger;
 
 public class SuperFastFigure extends Figure {
 
@@ -60,6 +61,16 @@ public class SuperFastFigure extends Figure {
         mc.znacenjeKarte(igrac.getIme(), this.getNaziv(), a, b,brojKoraka);
         while(!trenutnaPozicija.equals(odredisnaPozicija))
         {
+            synchronized (pauza) {
+                if (pauziranaSimulacija) {
+                    try {
+                        pauza.wait();
+                    } catch (InterruptedException e) {
+                        logger.severe(e.fillInStackTrace().toString());
+
+                    }
+                }
+            }
             if(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getDiamond()!=null)
             {
                 dodatniKoraci++;

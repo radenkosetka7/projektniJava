@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class FigureMovementController implements Initializable {
     public GridPane figurePane=new GridPane();
-    public static FigureMovementController figura;
+    public static FigureMovementController figura=new FigureMovementController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -44,7 +44,6 @@ public class FigureMovementController implements Initializable {
                 content++;
             }
         }
-        figura=this;
 
 
     }
@@ -53,7 +52,7 @@ public class FigureMovementController implements Initializable {
     {
         for(Position p:figura.getFiguraPresla())
         {
-            Rectangle rec=new Rectangle(10,10);
+            Rectangle rec=new Rectangle(20,20);
             rec.setFill(Color.PURPLE);
             Platform.runLater(()->
             {
