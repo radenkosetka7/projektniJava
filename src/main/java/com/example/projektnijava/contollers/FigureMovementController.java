@@ -25,14 +25,14 @@ public class FigureMovementController implements Initializable {
 
         for (int i = 0; i < Main.dimenzijaMatrice; i++) {
             ColumnConstraints col = new ColumnConstraints();
-            //col.setMinWidth(col1);
-            //col.setPrefWidth(col1);
+            col.setMinWidth(50);
+            col.setPrefWidth(50);
             figurePane.getColumnConstraints().add(col);
         }
         for (int i = 0; i < Main.dimenzijaMatrice; i++) {
             RowConstraints row = new RowConstraints();
-            //row.setMinHeight(row1);
-           // row.setPrefHeight(row1);
+            row.setMinHeight(50);
+            row.setPrefHeight(50);
             figurePane.getRowConstraints().add(row);
         }
         int content=1;
