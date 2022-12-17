@@ -10,13 +10,16 @@ import java.util.logging.Logger;
 public class MyLogger {
 
     private static Handler handler;
-    public static final Logger logger = Logger.getLogger("MyLog");
+    public static final Logger logger = Logger.getLogger("Loger");
 
     static {
         try {
-            handler = new FileHandler("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "logs.log");
+            handler = new FileHandler("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "projektnijava" + File.separator + "logs.log",true);
+            logger.addHandler(handler);
             logger.getLogger(MyLogger.class.getName()).setUseParentHandlers(false);
-            logger.getLogger(MyLogger.class.getName()).addHandler(handler);
+           /* logger.addHandler(handler);
+            logger.getLogger(Main.class.getName()).setUseParentHandlers(false);*/
+
         }
         catch(IOException exception)
         {
