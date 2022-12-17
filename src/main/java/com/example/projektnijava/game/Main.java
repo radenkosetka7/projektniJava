@@ -282,9 +282,9 @@ public class Main {
                         int broj=mc.getKey(position);
                         tmpPutanjaFigure+=broj+"-";
                     }
-                    String pomMilana=tmpPutanjaFigure.substring(0,tmpPutanjaFigure.length()-1);
+                    String putanja=tmpPutanjaFigure.substring(0,tmpPutanjaFigure.length()-1);
                     String stigla=f.isUspjesnoZavrsila()?"da":"ne";
-                    tekst+=pomMilana+") - stigla do cilja? " + stigla +"\n";
+                    tekst+=putanja+") - stigla do cilja? " + stigla +"\n";
 
                 }
 
