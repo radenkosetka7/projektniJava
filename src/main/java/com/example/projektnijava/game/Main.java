@@ -253,9 +253,7 @@ public class Main {
 
         }
         simulacijaZavrsena=true;
-        System.out.println("Pocni upis u fajl");
         saveResults();
-        System.out.println("Gotov upis u fajl");
     }
 
     public void saveResults()
@@ -294,7 +292,6 @@ public class Main {
 
             tekst+="Ukupno vrijeme trajanja igre: " + vrijemeIgre + "[s]";
 
-            //System.out.println(tekst);
             bufferedWriter.write(tekst);
             bufferedWriter.flush();
             bufferedWriter.close();

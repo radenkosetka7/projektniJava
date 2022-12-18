@@ -42,7 +42,6 @@ public class SpecialCard extends Card{
                 if(Main.matrica[pozicija.getX()][pozicija.getY()].getFigure()!=null &&
                     !(Main.matrica[pozicija.getX()][pozicija.getY()].getFigure() instanceof HoverFigure))
                 {
-                    System.out.println("FIGURA POJEDENAAAAAA");
                     Figure figura=Main.matrica[pozicija.getX()][pozicija.getY()].getFigure();
                     figura.setZavrsila(true);
                     int labela=mc.getKey(pozicija);

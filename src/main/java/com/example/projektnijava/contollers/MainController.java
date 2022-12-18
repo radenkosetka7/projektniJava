@@ -59,6 +59,7 @@ public class MainController implements Initializable {
         main=new Main();
         mc=this;
         brojIgaraLabela.setText(String.valueOf(tempBrojIgara()));
+        brojIgaraLabela.setStyle("-fx-font-weight: bold");
         List<Label> labele=new ArrayList<>();
         List<String> naziviFigura=new ArrayList<>();
         for(Player igrac: igraci)
