@@ -154,7 +154,6 @@ public class MainController implements Initializable {
         } catch (Exception e) {
             logger.severe(e.fillInStackTrace().toString());
 
-
         }
     }
 

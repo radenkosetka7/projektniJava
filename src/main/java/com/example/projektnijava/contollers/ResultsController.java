@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import static com.example.projektnijava.game.MyLogger.logger;
+
 public class ResultsController implements Initializable {
     public TextArea content=new TextArea();
     public ListView<String> fileList=new ListView<>();
@@ -39,7 +41,7 @@ public class ResultsController implements Initializable {
             }
             content.setText(resultStringBuilder.toString());
         } catch (IOException e) {
-           Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+            logger.severe(e.fillInStackTrace().toString());
 
         }
 

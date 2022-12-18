@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
+import static com.example.projektnijava.game.MyLogger.logger;
 
 
 public class GhostFigure extends Thread{
@@ -34,8 +35,7 @@ public class GhostFigure extends Thread{
                     }
                     catch (Exception e)
                     {
-                        Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
-
+                        logger.severe(e.fillInStackTrace().toString());
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class GhostFigure extends Thread{
             {
                 sleep(5000);
             } catch (InterruptedException e) {
-                Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                logger.severe(e.fillInStackTrace().toString());
 
 
             }

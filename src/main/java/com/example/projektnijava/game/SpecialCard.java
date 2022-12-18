@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.example.projektnijava.contollers.MainController.mc;
+import static com.example.projektnijava.game.MyLogger.logger;
 import static java.lang.Thread.sleep;
 
 public class SpecialCard extends Card{
@@ -54,7 +55,7 @@ public class SpecialCard extends Card{
         {
             sleep(1000);
         } catch (InterruptedException e) {
-            Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+            logger.severe(e.fillInStackTrace().toString());
 
         }
         ukloniRupe();

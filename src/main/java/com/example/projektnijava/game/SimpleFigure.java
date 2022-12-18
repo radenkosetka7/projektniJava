@@ -85,7 +85,7 @@ public class SimpleFigure extends Figure {
                 {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                    logger.severe(e.fillInStackTrace().toString());
                 }
                 if(!(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=null &&
                         matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=this))
@@ -103,7 +103,7 @@ public class SimpleFigure extends Figure {
                 {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                    logger.severe(e.fillInStackTrace().toString());
                 }
                 if(!(matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=null &&
                         matrica[trenutnaPozicija.getX()][trenutnaPozicija.getY()].getFigure()!=this))
@@ -133,7 +133,7 @@ public class SimpleFigure extends Figure {
             {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                Logger.getLogger(MyLogger.class.getName()).severe(e.fillInStackTrace().toString());
+                logger.severe(e.fillInStackTrace().toString());
 
             }
             this.setZavrsila(true);
