@@ -37,16 +37,16 @@ public class MainController implements Initializable {
 
     public final Image diamondSlika=new Image(new File("src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator +
             "projektnijava" + File.separator + "pictures" + File.separator + "diamond.png").toURI().toString(),20,20,false,false);
-    public Label numberOfRoundsPlayed=new Label();
-    public Label numbersPlayedLabel=new Label();
+    public Label brojOdigranihRundi=new Label();
+    public Label brojIgaraLabela=new Label();
     public BorderPane borderPane=new BorderPane();
     public Button startButton=new Button();
-    public HBox playersHBox=new HBox();
-    public ListView<String> figuresListView=new ListView();
+    public HBox igraciHBox=new HBox();
+    public ListView<String> figureListView=new ListView();
     public HBox centerHBox=new HBox();
-    public TextArea cardTextArea=new TextArea();
-    public ImageView cardImageView=new ImageView();
-    public Label timeLabel=new Label();
+    public TextArea kartaTextArea=new TextArea();
+    public ImageView kartaImageView=new ImageView();
+    public Label vrijemeLabel=new Label();
     private StackPane[][] matrica;
     public static boolean firstTime=true;
     public static int brojKlikova=0;
@@ -58,7 +58,7 @@ public class MainController implements Initializable {
         procitajSetup();
         main=new Main();
         mc=this;
-        numbersPlayedLabel.setText(String.valueOf(tempBrojIgara()));
+        brojIgaraLabela.setText(String.valueOf(tempBrojIgara()));
         List<Label> labele=new ArrayList<>();
         List<String> naziviFigura=new ArrayList<>();
         for(Player igrac: igraci)
@@ -85,8 +85,8 @@ public class MainController implements Initializable {
                 naziviFigura.add(igrac.getFigureIgraca().get(i).getNaziv());
             }
         }
-        playersHBox.getChildren().addAll(labele);
-        figuresListView.getItems().addAll(naziviFigura);
+        igraciHBox.getChildren().addAll(labele);
+        figureListView.getItems().addAll(naziviFigura);
     }
 
     public void znacenjeKarte(Object... a) {
@@ -104,7 +104,7 @@ public class MainController implements Initializable {
             int prelazi=(int)a[4];
             x = "Na potezu je " + nazivIgraca + ", figura "+ nazivFigure+ ", prelazi "+ prelazi +  " polja, pomjera se sa pozicije " + pocetnaPozicija +" na poziciju " +krajnjaPozicija +".";
         }
-        cardTextArea.setText(x);
+        kartaTextArea.setText(x);
     }
 
 
@@ -148,7 +148,7 @@ public class MainController implements Initializable {
             matrica=new StackPane[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
             GridPane gridPane=createGridPane(Main.dimenzijaMatrice,matrica);
             centerHBox.getChildren().add(1, gridPane);
-            cardImageView.setStyle("-fx-background-color: WHITE");
+            kartaImageView.setStyle("-fx-background-color: WHITE");
             //Main.matrica=new Object[Main.dimenzijaMatrice][Main.dimenzijaMatrice];
         } catch (Exception e) {
             logger.severe(e.fillInStackTrace().toString());
@@ -196,7 +196,7 @@ public class MainController implements Initializable {
     {
         Platform.runLater(()->
         {
-            cardImageView.setImage(card.getSlika());
+            kartaImageView.setImage(card.getSlika());
         });
     }
 
@@ -293,7 +293,7 @@ public class MainController implements Initializable {
                     String formatiranoVrijeme=String.format("%d m %d s",m,s);
                     Platform.runLater(()->
                     {
-                        timeLabel.setText(formatiranoVrijeme);
+                        vrijemeLabel.setText(formatiranoVrijeme);
                     });
                     try
                     {
@@ -366,7 +366,7 @@ public class MainController implements Initializable {
     public void prikaziKretanjeFigure(MouseEvent mouseEvent)
     {
         try {
-            String selectedItem = figuresListView.getSelectionModel().getSelectedItem();
+            String selectedItem = figureListView.getSelectionModel().getSelectedItem();
             Figure izabranaFigura=null;
             if(selectedItem==null)
             {

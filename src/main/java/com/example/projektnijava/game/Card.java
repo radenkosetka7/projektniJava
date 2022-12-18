@@ -16,7 +16,7 @@ public abstract class Card {
 
     public Image getSlika()
     {
-        return new Image(new File(putanja).toURI().toString(),250,250,false,false);
+        return new Image(new File(putanja).toURI().toString(),250,300,false,false);
     }
 
 }

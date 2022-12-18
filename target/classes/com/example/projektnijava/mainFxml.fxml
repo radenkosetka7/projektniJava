@@ -13,20 +13,20 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF3CD;"
+            prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #939799;"
             xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.projektnijava.contollers.MainController">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <HBox>
                 <HBox alignment="CENTER_LEFT">
-                    <Label fx:id="numberOfRoundsPlayed" style="-fx-text-fill: #4545BD;"
+                    <Label fx:id="brojOdigranihRundi" style="-fx-text-fill: black;"
                            text="Trenutni broj odgranih igara: " textAlignment="CENTER" wrapText="true"/>
-                    <Label fx:id="numbersPlayedLabel"/>
+                    <Label fx:id="brojIgaraLabela"/>
                 </HBox>
                 <Region HBox.hgrow="ALWAYS"/>
                 <Label alignment="CENTER" layoutX="10.0" layoutY="10.0"
-                       style="-fx-background-color: #FFF3CD; -fx-text-fill: #C01B1B;" text="DiamondCircle"
+                       style="-fx-text-fill: #C61A09;" text="DiamondCircle"
                        textAlignment="CENTER" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="27.0"/>
@@ -35,7 +35,7 @@
                 <Region HBox.hgrow="ALWAYS"/>
                 <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#pokreniSimulaciju"
                         prefHeight="43.0"
-                        prefWidth="125.0" style="-fx-text-fill: #4545BD;" text="Pokreni" translateX="-10.0">
+                        prefWidth="125.0" style=" -fx-text-fill: black;" text="Pokreni" translateX="-10.0">
                     <font>
                         <Font name="System Bold" size="12.0"/>
                     </font>
@@ -44,7 +44,8 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                 </padding>
             </HBox>
-            <HBox fx:id="playersHBox" alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+            <HBox fx:id="igraciHBox"  style="-fx-text-fill: #C61A09;"  alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+
                 <padding>
                     <Insets left="100.0" right="100.0"/>
                 </padding>
@@ -53,8 +54,10 @@
         </VBox>
     </top>
     <left>
-        <ListView fx:id="figuresListView" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#prikaziKretanjeFigure"
-                  prefHeight="547.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+        <ListView fx:id="figureListView" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#prikaziKretanjeFigure"
+                  prefHeight="547.0" prefWidth="170.0" BorderPane.alignment="CENTER"
+                  style="-fx-border-color: black; -fx-background-color: #939799; "
+        >
             <BorderPane.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0"/>
             </BorderPane.margin>
@@ -79,7 +82,7 @@
                 <Region layoutX="10.0" layoutY="119.0" VBox.vgrow="ALWAYS"/>
                 <HBox VBox.vgrow="ALWAYS">
                     <Region HBox.hgrow="ALWAYS"/>
-                    <TextArea fx:id="cardTextArea" editable="false" wrapText="true" HBox.hgrow="ALWAYS"/>
+                    <TextArea fx:id="kartaTextArea" editable="false" wrapText="true" HBox.hgrow="ALWAYS"/>
                     <Region layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS"/>
                 </HBox>
                 <Region layoutX="10.0" layoutY="10.0" VBox.vgrow="ALWAYS"/>
@@ -91,7 +94,7 @@
             <BorderPane.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0"/>
             </BorderPane.margin>
-            <Label alignment="CENTER" style="-fx-background-color: D9E8FB; -fx-text-fill: #4545BD;"
+            <Label alignment="CENTER" style=" -fx-text-fill: black;"
                    text="Trenutna karta" VBox.vgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="16.0"/>
@@ -101,14 +104,14 @@
                 <VBox.margin>
                     <Insets/>
                 </VBox.margin>
-                <ImageView fx:id="cardImageView" pickOnBounds="true" preserveRatio="true"/>
+                <ImageView fx:id="kartaImageView"  pickOnBounds="true" preserveRatio="true"/>
             </AnchorPane>
-            <Label style="-fx-background-color: FFF1CC;" text="Vrijeme trajanja igre">
+            <Label  text="Vrijeme trajanja igre">
                 <font>
                     <Font size="15.0"/>
                 </font>
             </Label>
-            <Label fx:id="timeLabel">
+            <Label fx:id="vrijemeLabel">
                 <font>
                     <Font size="15.0"/>
                 </font>
