@@ -1,2 +1,2 @@
-Igraci: 2
-Dimenzija: 7
+Igraci: 4
+Dimenzija: 10

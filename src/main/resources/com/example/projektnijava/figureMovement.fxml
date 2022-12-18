@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.GridPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektnijava.contollers.FigureMovementController">
-    <GridPane fx:id="figurePane" gridLinesVisible="true" layoutX="176.0" layoutY="108.0" prefHeight="342.0" prefWidth="394.0">
+    <GridPane fx:id="figurePane" gridLinesVisible="true" layoutX="176.0" layoutY="58.0" prefHeight="342.0" prefWidth="394.0">
     </GridPane>
 
 </AnchorPane>

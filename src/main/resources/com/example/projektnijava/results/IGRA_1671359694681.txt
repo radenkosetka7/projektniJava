@@ -1,0 +1,20 @@
+Igrac1 - Igrač 1
+Figura1(OF, ZUTA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+Figura2(OF, ZUTA) - predjeni put (5-14) - stigla do cilja? ne
+Figura3(OF, ZUTA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19) - stigla do cilja? ne
+Figura4(SBF, ZUTA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+
+Igrac2 - Igrač 2
+Figura5(LF, CRVENA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+Figura6(OF, CRVENA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+Figura7(OF, CRVENA) - predjeni put (5-14-23-32-39-46-53) - stigla do cilja? ne
+Figura8(OF, CRVENA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+
+Igrac3 - Igrač 3
+Figura9(SBF, PLAVA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+Figura10(OF, PLAVA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30) - stigla do cilja? ne
+Figura11(OF, PLAVA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+Figura12(SBF, PLAVA) - predjeni put (5-14-23-32-39-46-53-60-51-42-33-26-19-12-13-22-31-38-45-52-43-34-27-20-21-30-37-44-35-28-29-36) - stigla do cilja? da
+
+
+Ukupno vrijeme trajanja igre: 325[s]
