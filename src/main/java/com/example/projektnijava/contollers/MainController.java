@@ -267,7 +267,7 @@ public class MainController implements Initializable {
         Platform.runLater(()->
         {
             Label labela = (Label) this.matrica[red][kolona].getChildren().get(0);
-            labela.setStyle("-fx-background-color: black;");
+            labela.setStyle("-fx-border-color: black;");
         });
     }
 
@@ -276,7 +276,7 @@ public class MainController implements Initializable {
         Platform.runLater(()->
         {
             Label labela = (Label) matrica[red][kolona].getChildren().get(0);
-            labela.setStyle("-fx-background-color: transparent; -fx-border-color:transparent");
+            labela.setStyle("-fx-border-color:transparent");
         });
     }
 
